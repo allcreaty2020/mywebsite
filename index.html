@@ -7,22 +7,23 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 50px 20px;
       background-color: #f5f5f5;
+      margin: 0;
     }
 
     /* 首页 Logo1 */
     #login img.logo {
-      max-width: 300px; /* 调大首页logo */
-      width: 100%;
+      width: 50%;         /* 自适应屏幕宽度 */
+      max-width: 400px;   /* 最大宽度 */
       height: auto;
       margin-bottom: 30px;
     }
 
     /* 视频页 Logo2 */
     #content img.logo {
-      max-width: 250px; /* 调大视频页logo */
-      width: 100%;
+      width: 40%;         /* 自适应屏幕宽度 */
+      max-width: 350px;   /* 最大宽度 */
       height: auto;
       margin-bottom: 20px;
       display: block;
@@ -40,21 +41,37 @@
     }
 
     input[type="password"], button {
-      padding: 10px;
+      padding: 12px;
       margin: 5px;
       font-size: 16px;
+      max-width: 300px;
+      width: 80%;
     }
 
     iframe {
       width: 80%;
-      max-width: 800px;
-      height: 450px;
+      max-width: 900px;
+      height: 506px; /* 16:9比例 */
       border-radius: 10px;
       border: none;
       margin-top: 10px;
       display: block;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    /* 自适应屏幕缩小 */
+    @media (max-width: 768px) {
+      #login img.logo {
+        width: 70%;
+      }
+      #content img.logo {
+        width: 60%;
+      }
+      iframe {
+        width: 95%;
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -76,7 +93,7 @@
   <script>
     function checkPassword() {
       var input = document.getElementById("password").value;
-      var correctPassword = "12345678"; // 新密码
+      var correctPassword = "12345678"; // 密码
       if (input === correctPassword) {
         document.getElementById("login").style.display = "none";   // 隐藏首页
         document.getElementById("content").style.display = "block"; // 显示视频页
