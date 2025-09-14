@@ -14,6 +14,9 @@
       max-width: 200px;
       margin-bottom: 20px;
     }
+    #login {
+      margin-top: 20px;
+    }
     #content {
       display: none;
       margin-top: 20px;
@@ -38,13 +41,14 @@
   <img src="logo.png" alt="Logo" class="logo">
   
   <!-- Password section -->
-  <h2>Please enter password</h2>
-  <input type="password" id="password" placeholder="Enter password">
-  <button onclick="checkPassword()">Submit</button>
+  <div id="login">
+    <h2>Please enter password</h2>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Submit</button>
+  </div>
 
   <!-- Hidden content -->
   <div id="content">
-    <h3>Protected Video</h3>
     <iframe src="https://www.youtube.com/embed/mw8CFZbegPY" allowfullscreen></iframe>
   </div>
 
@@ -53,7 +57,8 @@
       var input = document.getElementById("password").value;
       var correctPassword = "123456"; // Change this to your own password
       if (input === correctPassword) {
-        document.getElementById("content").style.display = "block";
+        document.getElementById("login").style.display = "none";   // 隐藏输入区
+        document.getElementById("content").style.display = "block"; // 显示视频
       } else {
         alert("Wrong password, please try again!");
       }
