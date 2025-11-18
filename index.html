@@ -13,10 +13,7 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-
-      /* 🔥 现在背景是纯白色 */
-      background-color: #ffffff;
-
+      background-color: #ffffff; /* 纯白背景 */
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -121,6 +118,27 @@
       border-radius: 12px;
     }
 
+    .video-buttons {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .video-choice {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #f5f5f5;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .video-choice:hover {
+      background-color: #e5e5e5;
+    }
+
     .contact-email {
       margin-top: 24px;
       font-size: 14px;
@@ -130,6 +148,10 @@
     .contact-email a {
       color: #0066cc;
       text-decoration: none;
+    }
+
+    .contact-email a:hover {
+      text-decoration: underline;
     }
 
     @media (min-width: 1024px) {
@@ -145,21 +167,21 @@
   <!-- ░░░ PAGE 1 — Password Page ░░░ -->
   <div id="page1" class="page active">
 
-    <!-- Logo3 -->
+    <!-- 顶部 Logo3 -->
     <img src="logo3.png" class="logo" alt="Logo 3">
 
-    <!-- Text under logo -->
+    <!-- 文字提示 -->
     <div style="font-size: 20px; margin-bottom: 10px;">
       Please enter your password
     </div>
 
-    <!-- Password input -->
+    <!-- 密码输入 -->
     <div class="password-box">
       <input type="password" id="password" placeholder="Password">
       <button onclick="checkPassword()">Submit</button>
     </div>
 
-    <!-- Bottom logo -->
+    <!-- 底部 Logo（例如 Logo1） -->
     <img src="logo1.png" class="logo-small" alt="Logo Bottom">
 
   </div>
@@ -168,29 +190,58 @@
   <!-- ░░░ PAGE 2 — Pattern + Video Page ░░░ -->
   <div id="page2" class="page">
 
-    <!-- Top Logo2 -->
+    <!-- 顶部 Logo2 -->
     <img src="logo2.png" class="logo" alt="Logo 2">
 
-    <!-- Pattern Title -->
+    <!-- Pattern 标题（去掉 Pdf） -->
     <div class="section-title">Cappy The Acorn Pattern</div>
 
-    <!-- Download Button -->
+    <!-- 下载按钮：下载 PDF -->
     <a class="download-button" href="Cappy%20The%20Acorn%2011.9.pdf" download>
       Download your pattern
     </a>
 
-    <!-- Video Title -->
+    <!-- 视频标题 -->
     <div class="section-title">Cappy The Acorn Video</div>
 
-    <!-- YouTube Playlist -->
+    <!-- 主播放器：默认第一个视频 -->
     <div class="video-container">
       <iframe
-        src="https://www.youtube.com/embed/videoseries?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
+        id="cappyPlayer"
+        src="https://www.youtube.com/embed/NrT-XzwVBqE"
         allowfullscreen>
       </iframe>
     </div>
 
-    <!-- Contact Email -->
+    <!-- 自定义 5 个视频按钮 -->
+    <div class="video-buttons">
+      <button class="video-choice"
+              data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
+        Video 1
+      </button>
+
+      <button class="video-choice"
+              data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
+        Video 2
+      </button>
+
+      <button class="video-choice"
+              data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
+        Video 3
+      </button>
+
+      <button class="video-choice"
+              data-video="https://www.youtube.com/embed/MK3BJYTtreY">
+        Video 4
+      </button>
+
+      <button class="video-choice"
+              data-video="https://www.youtube.com/embed/FxDK50NTeIA">
+        Video 5
+      </button>
+    </div>
+
+    <!-- 联系邮箱 -->
     <div class="contact-email">
       Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
     </div>
@@ -198,9 +249,10 @@
 
 
   <script>
+    // 密码校验
     function checkPassword() {
       var input = document.getElementById("password").value;
-      var correctPassword = "cappy";
+      var correctPassword = "cappy"; // 当前密码
 
       if (input === correctPassword) {
         document.getElementById("page1").classList.remove("active");
@@ -209,6 +261,17 @@
         alert("Password is incorrect. Please try again.");
       }
     }
+
+    // 视频切换：点击按钮，切换 iframe 的 src
+    const videoButtons = document.querySelectorAll('.video-choice');
+    const player = document.getElementById('cappyPlayer');
+
+    videoButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const url = button.getAttribute('data-video');
+        player.src = url;
+      });
+    });
   </script>
 
 </body>
