@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Protected Video</title>
 
   <style>
@@ -13,7 +13,7 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #ffffff; /* 纯白背景 */
+      background-color: #ffffff;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -42,10 +42,13 @@
       margin-bottom: 24px;
     }
 
+    /* 缩小 Logo1 */
     .logo-small {
-      width: 50vw;
-      max-width: 300px;
+      width: 25vw;
+      max-width: 150px;
+      min-width: 80px;
       margin-top: 20px;
+      height: auto;
     }
 
     .password-box {
@@ -74,10 +77,6 @@
       color: #fff;
     }
 
-    button:hover {
-      opacity: 0.9;
-    }
-
     .download-button {
       display: inline-block;
       padding: 14px 24px;
@@ -88,6 +87,10 @@
       border-radius: 8px;
       font-size: 16px;
       font-weight: bold;
+    }
+
+    .download-button:hover {
+      opacity: 0.9;
     }
 
     .section-title {
@@ -106,7 +109,7 @@
     .video-container::before {
       content: "";
       display: block;
-      padding-top: 56.25%; /* 16:9 */
+      padding-top: 56.25%;
     }
 
     .video-container iframe {
@@ -119,24 +122,27 @@
     }
 
     .video-buttons {
-      margin-top: 12px;
+      margin-top: 14px;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
       justify-content: center;
     }
 
     .video-choice {
-      padding: 8px 14px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      background-color: #f5f5f5;
-      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      background-color: #333;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
       cursor: pointer;
+      transition: 0.2s;
     }
 
     .video-choice:hover {
-      background-color: #e5e5e5;
+      background-color: #555;
     }
 
     .contact-email {
@@ -164,95 +170,87 @@
 
 <body>
 
-  <!-- ░░░ PAGE 1 — Password Page ░░░ -->
+  <!-- PAGE 1 (Password Page) -->
   <div id="page1" class="page active">
+    <img src="logo3.png" class="logo" alt="Logo 3" />
 
-    <!-- 顶部 Logo3 -->
-    <img src="logo3.png" class="logo" alt="Logo 3">
-
-    <!-- 文字提示 -->
     <div style="font-size: 20px; margin-bottom: 10px;">
       Please enter your password
     </div>
 
-    <!-- 密码输入 -->
     <div class="password-box">
-      <input type="password" id="password" placeholder="Password">
+      <input type="password" id="password" placeholder="Password" />
       <button onclick="checkPassword()">Submit</button>
     </div>
 
-    <!-- 底部 Logo（例如 Logo1） -->
-    <img src="logo1.png" class="logo-small" alt="Logo Bottom">
-
+    <img src="logo1.png" class="logo-small" alt="Logo Bottom" />
   </div>
 
-
-  <!-- ░░░ PAGE 2 — Pattern + Video Page ░░░ -->
+  <!-- PAGE 2 (Pattern + Videos) -->
   <div id="page2" class="page">
+    <img src="logo2.png" class="logo" alt="Logo 2" />
 
-    <!-- 顶部 Logo2 -->
-    <img src="logo2.png" class="logo" alt="Logo 2">
+    <div class="section-title">Cappy the Acorn Crochet Pattern</div>
 
-    <!-- Pattern 标题（去掉 Pdf） -->
-    <div class="section-title">Cappy The Acorn Pattern</div>
-
-    <!-- 下载按钮：下载 PDF -->
     <a class="download-button" href="Cappy%20The%20Acorn%2011.9.pdf" download>
-      Download your pattern
+      Download PDF Pattern
     </a>
 
-    <!-- 视频标题 -->
     <div class="section-title">Cappy The Acorn Video</div>
 
-    <!-- 主播放器：默认第一个视频 -->
     <div class="video-container">
       <iframe
         id="cappyPlayer"
         src="https://www.youtube.com/embed/NrT-XzwVBqE"
-        allowfullscreen>
-      </iframe>
+        allowfullscreen
+      ></iframe>
     </div>
 
-    <!-- 自定义 5 个视频按钮 -->
     <div class="video-buttons">
       <button class="video-choice"
-              data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
-        Video 1
+        data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
+        Part 1: Nut
       </button>
 
       <button class="video-choice"
-              data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
-        Video 2
+        data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
+        Part 2: Cap
       </button>
 
       <button class="video-choice"
-              data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
-        Video 3
+        data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
+        Part 3: Stem
       </button>
 
       <button class="video-choice"
-              data-video="https://www.youtube.com/embed/MK3BJYTtreY">
-        Video 4
+        data-video="https://www.youtube.com/embed/MK3BJYTtreY">
+        Part 4: Joining the Cap and Stem
       </button>
 
       <button class="video-choice"
-              data-video="https://www.youtube.com/embed/FxDK50NTeIA">
-        Video 5
+        data-video="https://www.youtube.com/embed/FxDK50NTeIA">
+        Part 5: Joining the Nut and Cap
       </button>
     </div>
 
-    <!-- 联系邮箱 -->
+    <!-- 新增：Watch on Youtube 按钮（同样样式） -->
+    <a
+      class="download-button"
+      href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
+      target="_blank"
+    >
+      Watch on Youtube
+    </a>
+
     <div class="contact-email">
       Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
     </div>
   </div>
 
-
   <script>
-    // 密码校验
     function checkPassword() {
       var input = document.getElementById("password").value;
-      var correctPassword = "cappy"; // 当前密码
+      var correctPassword = "cappy";
 
       if (input === correctPassword) {
         document.getElementById("page1").classList.remove("active");
@@ -262,13 +260,12 @@
       }
     }
 
-    // 视频切换：点击按钮，切换 iframe 的 src
-    const videoButtons = document.querySelectorAll('.video-choice');
-    const player = document.getElementById('cappyPlayer');
+    const videoButtons = document.querySelectorAll(".video-choice");
+    const player = document.getElementById("cappyPlayer");
 
-    videoButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const url = button.getAttribute('data-video');
+    videoButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const url = button.getAttribute("data-video");
         player.src = url;
       });
     });
