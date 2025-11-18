@@ -124,6 +124,12 @@
       color: rgb(235, 228, 212);
     }
 
+    /* ⭐ 只给主下载按钮加下划线 ⭐ */
+    .download-button.main-download {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     /* 视频按钮列表 */
     .video-buttons {
       margin-top: 14px;
@@ -209,7 +215,8 @@
     <!-- 标题已去掉 “Cappy The Acorn” → 只剩下 Crochet Pattern -->
     <div class="section-title">Crochet Pattern</div>
 
-    <a class="download-button" href="/Cappy%20The%20Acorn%2011.9.pdf" download>
+    <!-- ⭐ 在这里加 main-download 这个 class ⭐ -->
+    <a class="download-button main-download" href="/Cappy%20The%20Acorn%2011.9.pdf" download>
       Download PDF Pattern
     </a>
 
