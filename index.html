@@ -9,7 +9,7 @@
   <style>
     * { box-sizing: border-box; }
 
-    /* 全站背景 + 居中布局 */
+    /* Global background + center alignment */
     body {
       margin: 0;
       padding: 0;
@@ -27,6 +27,7 @@
       justify-content: center;
     }
 
+    /* Page container */
     .page {
       display: none;
       flex-direction: column;
@@ -35,13 +36,15 @@
       padding: 20px;
       width: 100%;
       max-width: 960px;
-      text-align: center;
       min-height: 100vh;
+      text-align: center;
     }
 
-    .page.active { display: flex; }
+    .page.active {
+      display: flex;
+    }
 
-    /* 第一页顶部 logo */
+    /* First page main logo */
     .logo {
       width: 70vw;
       max-width: 480px;
@@ -50,7 +53,7 @@
       margin-bottom: 24px;
     }
 
-    /* 小 logo 尺寸（第一页底部 & 第二页底部） */
+    /* Footer logos (first page bottom + second page bottom) */
     .logo-footer-second {
       width: 16vw;
       max-width: 96px;
@@ -59,9 +62,9 @@
       margin-top: 24px;
     }
 
-    /* 第二页Logo3（缩小 50%）+ ⭐ 上方留白 16vw ⭐ */
+    /* Second page Logo3 (50% smaller) + adjusted top spacing */
     .logo3-second {
-      margin-top: 16vw;   /* ⭐ 新增留白：logo 高度的一半 ⭐ */
+      margin-top: 4.8vw;   /* reduced by 70% relative to previous 16vw */
       width: 32vw;
       max-width: 260px;
       min-width: 120px;
@@ -69,7 +72,7 @@
       margin-bottom: 20px;
     }
 
-    /* 密码输入区 */
+    /* Password input area */
     .password-box {
       display: flex;
       gap: 8px;
@@ -86,7 +89,7 @@
       min-width: 200px;
     }
 
-    /* 所有按钮（无边框） */
+    /* ALL Buttons – no border */
     button,
     .download-button,
     .video-choice {
@@ -106,6 +109,7 @@
       gap: 8px;
     }
 
+    /* Hover effect for all buttons */
     button:hover,
     .download-button:hover,
     .video-choice:hover {
@@ -113,13 +117,14 @@
       color: rgb(235, 228, 212);
     }
 
+    /* Section titles */
     .section-title {
       font-size: 22px;
       font-weight: bold;
       margin: 16px 0 8px 0;
     }
 
-    /* 视频框 */
+    /* Responsive video container */
     .video-container {
       position: relative;
       width: 90vw;
@@ -142,7 +147,7 @@
       border: none;
     }
 
-    /* 视频按钮排列 */
+    /* Video button list */
     .video-buttons {
       margin-top: 14px;
       width: 100%;
@@ -152,24 +157,25 @@
       gap: 12px;
     }
 
-    /* Part 按钮图标 */
+    /* ▶ icon before each Part button */
     .video-choice::before {
       content: "▶";
       font-size: 14px;
       transition: transform 0.25s ease;
     }
 
+    /* Rotate ▶ on hover */
     .video-choice:hover::before {
       transform: rotate(18deg) translateX(2px);
     }
 
-    /* 当前选中视频按钮 */
+    /* Active video button (clicked) */
     .video-choice.active {
       background-color: rgb(130, 65, 27);
       color: rgb(235, 228, 212);
     }
 
-    /* Playlist 大按钮图标 */
+    /* Playlist button with ▶ icon */
     .download-button.playlist::before {
       content: "▶";
       font-size: 14px;
@@ -180,6 +186,7 @@
       transform: rotate(18deg) translateX(2px);
     }
 
+    /* Contact */
     .contact-email {
       margin-top: 24px;
       font-size: 14px;
@@ -191,10 +198,9 @@
       text-decoration: none;
     }
 
+    /* Mobile styles */
     @media (max-width: 600px) {
       body {
-        align-items: center;
-        justify-content: center;
         background-attachment: scroll;
       }
 
@@ -206,9 +212,10 @@
         width: 90vw;
       }
 
+      /* Mobile spacing more generous */
       .logo3-second {
         width: 70vw;
-        margin-top: 22vw; /* 手机留白再多一点更美观 */
+        margin-top: 22vw;
       }
 
       .logo-footer-second {
@@ -226,7 +233,7 @@
 
 <body>
 
-  <!-- ░░░ Page 1 ░░░ -->
+  <!-- ░░░ FIRST PAGE ░░░ -->
   <div id="page1" class="page active">
 
     <img src="logofp.png" class="logo" alt="Logo Intro" />
@@ -244,10 +251,9 @@
   </div>
 
 
-  <!-- ░░░ Page 2 ░░░ -->
+  <!-- ░░░ SECOND PAGE ░░░ -->
   <div id="page2" class="page">
 
-    <!-- 第二页加留白后的 logo3 -->
     <img src="logo3.png" class="logo3-second" alt="Logo3 Second" />
 
     <div class="section-title">Cappy the Acorn Crochet Pattern</div>
@@ -265,6 +271,7 @@
         allowfullscreen></iframe>
     </div>
 
+    <!-- Part buttons -->
     <div class="video-buttons">
       <button class="video-choice active" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
         Part 1: Nut
@@ -287,6 +294,7 @@
       </button>
     </div>
 
+    <!-- Playlist button with ▶ -->
     <a
       class="download-button playlist"
       href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
@@ -314,7 +322,7 @@
       }
     }
 
-    /* 切换视频 + 高亮按钮 */
+    /* Video switching + active highlight */
     const videoButtons = document.querySelectorAll(".video-choice");
     const player = document.getElementById("cappyPlayer");
 
