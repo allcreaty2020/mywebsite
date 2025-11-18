@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Protected Video</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -12,7 +13,10 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+
+      /* 🔥 现在背景是纯白色 */
+      background-color: #ffffff;
+
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -26,6 +30,7 @@
       justify-content: center;
       padding: 20px;
       width: 100%;
+      text-align: center;
     }
 
     .page.active {
@@ -37,12 +42,13 @@
       max-width: 480px;
       min-width: 200px;
       height: auto;
-      display: block;
       margin-bottom: 24px;
     }
 
-    .logo-second {
-      margin-bottom: 16px;
+    .logo-small {
+      width: 50vw;
+      max-width: 300px;
+      margin-top: 20px;
     }
 
     .password-box {
@@ -50,6 +56,7 @@
       gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: 10px;
     }
 
     input[type="password"] {
@@ -57,7 +64,7 @@
       font-size: 16px;
       border-radius: 6px;
       border: 1px solid #ccc;
-      min-width: 180px;
+      min-width: 200px;
     }
 
     button {
@@ -72,6 +79,24 @@
 
     button:hover {
       opacity: 0.9;
+    }
+
+    .download-button {
+      display: inline-block;
+      padding: 14px 24px;
+      margin: 10px 0 20px 0;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 16px 0 8px 0;
     }
 
     .video-container {
@@ -96,39 +121,15 @@
       border-radius: 12px;
     }
 
-    .section-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin: 16px 0 8px 0;
-      text-align: center;
-    }
-
-    .download-link {
-      font-size: 16px;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .download-link a {
-      text-decoration: none;
-      color: #0066cc;
-      font-weight: bold;
-    }
-
     .contact-email {
       margin-top: 24px;
       font-size: 14px;
-      text-align: center;
       color: #555;
     }
 
     .contact-email a {
       color: #0066cc;
       text-decoration: none;
-    }
-
-    .contact-email a:hover {
-      text-decoration: underline;
     }
 
     @media (min-width: 1024px) {
@@ -138,53 +139,68 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- 页面 1：Logo1 + 密码输入（密码改为 cappy） -->
+  <!-- ░░░ PAGE 1 — Password Page ░░░ -->
   <div id="page1" class="page active">
-    <!-- 替换为你的第一个 logo 文件名 -->
-    <img src="logo1.png" alt="Logo 1" class="logo">
 
+    <!-- Logo3 -->
+    <img src="logo3.png" class="logo" alt="Logo 3">
+
+    <!-- Text under logo -->
+    <div style="font-size: 20px; margin-bottom: 10px;">
+      Please enter your password
+    </div>
+
+    <!-- Password input -->
     <div class="password-box">
       <input type="password" id="password" placeholder="Password">
       <button onclick="checkPassword()">Submit</button>
     </div>
+
+    <!-- Bottom logo -->
+    <img src="logo1.png" class="logo-small" alt="Logo Bottom">
+
   </div>
 
-  <!-- 页面 2：Logo2 + PDF 下载 + YouTube 播放列表 + 联系邮箱 -->
+
+  <!-- ░░░ PAGE 2 — Pattern + Video Page ░░░ -->
   <div id="page2" class="page">
-    <!-- 替换为你的第二个 logo 文件名 -->
-    <img src="logo2.png" alt="Logo 2" class="logo logo-second">
 
-    <!-- 1. PDF Download -->
-    <div class="section-title">Cappy The Acorn Pattern Pdf</div>
-    <div class="download-link">
-      <!-- 假设 PDF 文件名为：Cappy The Acorn 11.9.pdf，并与本 HTML 在同一目录 -->
-      <a href="Cappy%20The%20Acorn%2011.9.pdf" download>
-        Download pattern "Cappy The Acorn Pattern Pdf"
-      </a>
-    </div>
+    <!-- Top Logo2 -->
+    <img src="logo2.png" class="logo" alt="Logo 2">
 
-    <!-- 2. YouTube Playlist Video -->
+    <!-- Pattern Title -->
+    <div class="section-title">Cappy The Acorn Pattern</div>
+
+    <!-- Download Button -->
+    <a class="download-button" href="Cappy%20The%20Acorn%2011.9.pdf" download>
+      Download your pattern
+    </a>
+
+    <!-- Video Title -->
     <div class="section-title">Cappy The Acorn Video</div>
+
+    <!-- YouTube Playlist -->
     <div class="video-container">
-      <!-- 播放列表的 iframe 写法：embed/videoseries?list=... -->
       <iframe
         src="https://www.youtube.com/embed/videoseries?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
-        allowfullscreen
-      ></iframe>
+        allowfullscreen>
+      </iframe>
     </div>
 
-    <!-- 3. Contact Email -->
+    <!-- Contact Email -->
     <div class="contact-email">
       Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
     </div>
   </div>
 
+
   <script>
     function checkPassword() {
       var input = document.getElementById("password").value;
-      var correctPassword = "cappy"; // 新密码
+      var correctPassword = "cappy";
 
       if (input === correctPassword) {
         document.getElementById("page1").classList.remove("active");
@@ -194,5 +210,6 @@
       }
     }
   </script>
+
 </body>
 </html>
