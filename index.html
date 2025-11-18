@@ -9,7 +9,7 @@
   <style>
     * { box-sizing: border-box; }
 
-    /* 全站背景 + 居中布局（第一页、第二页共用） */
+    /* 全站背景 + 居中布局 */
     body {
       margin: 0;
       padding: 0;
@@ -23,25 +23,25 @@
 
       min-height: 100vh;
       display: flex;
-      align-items: center;      /* 垂直居中 */
-      justify-content: center;  /* 水平居中 */
+      align-items: center;
+      justify-content: center;
     }
 
     .page {
       display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: center;  /* 页面内部内容垂直居中 */
+      justify-content: center;
       padding: 20px;
       width: 100%;
       max-width: 960px;
       text-align: center;
-      min-height: 100vh;        /* 让每一页都至少占满一屏 */
+      min-height: 100vh;
     }
 
     .page.active { display: flex; }
 
-    /* 通用大 logo（第一页顶部用、之前用过的尺寸） */
+    /* 第一页顶部 logo */
     .logo {
       width: 70vw;
       max-width: 480px;
@@ -50,46 +50,25 @@
       margin-bottom: 24px;
     }
 
-    /* 第一页底部的小 logo1 */
-    .logo-small {
-      width: 20vw;
-      max-width: 120px;
-      min-width: 70px;
-      height: auto;
-      margin-top: 40px;
-    }
-
-    /* 第二页顶部的 logo1（已经放大过） */
-    .logo1-small-second {
-      width: 40vw;
-      max-width: 200px;
-      min-width: 120px;
-      height: auto;
-      margin-bottom: 4vw;
-    }
-
-    /* 第二页的 Logo3：缩小 50% 后的尺寸 */
-    .logo3-second {
-      width: 32vw;       /* 之前 64vw → 现在缩小一半 */
-      max-width: 260px;  /* 之前 520 → 一半 */
-      min-width: 120px;  /* 之前 240 → 一半 */
-      height: auto;
-      margin-bottom: 20px;
-    }
-
-    /* 第二页最底部的 logo.png
-       比第一页的 logo-small 再小 20%：
-       logo-small: 20vw / 120px
-       这里：16vw / 96px */
+    /* 第一页和第二页底部小 logo */
     .logo-footer-second {
       width: 16vw;
       max-width: 96px;
       min-width: 56px;
       height: auto;
-      margin-top: 16px;
+      margin-top: 24px;
     }
 
-    /* 密码输入区域 */
+    /* 第二页 Logo3（缩小 50%） */
+    .logo3-second {
+      width: 32vw;
+      max-width: 260px;
+      min-width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* 密码输入 */
     .password-box {
       display: flex;
       gap: 8px;
@@ -106,13 +85,13 @@
       min-width: 200px;
     }
 
-    /* 按钮统一风格（透明背景 + 深棕边框 + hover 深棕背景 + 米白字） */
+    /* 按钮（全部无边框） */
     button,
     .download-button,
     .video-choice {
       background-color: transparent;
       color: #000;
-      border: 2px solid rgb(130, 65, 27);
+      border: none;  /* ★ 去掉边框 ★ */
       padding: 12px 20px;
       border-radius: 8px;
       font-size: 16px;
@@ -120,9 +99,13 @@
       cursor: pointer;
       text-decoration: none;
       transition: 0.25s ease;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
+    /* hover 效果 */
     button:hover,
     .download-button:hover,
     .video-choice:hover {
@@ -130,13 +113,14 @@
       color: rgb(235, 228, 212);
     }
 
+    /* Section title */
     .section-title {
       font-size: 22px;
       font-weight: bold;
       margin: 16px 0 8px 0;
     }
 
-    /* 自适应视频容器，16:9 比例 */
+    /* 视频容器 */
     .video-container {
       position: relative;
       width: 90vw;
@@ -159,7 +143,7 @@
       border: none;
     }
 
-    /* Part 1–5 一行一个按钮 */
+    /* Part 按钮组合 */
     .video-buttons {
       margin-top: 14px;
       width: 100%;
@@ -169,9 +153,33 @@
       gap: 12px;
     }
 
-    .video-choice {
-      width: 80%;
-      max-width: 320px;
+    /* ▶ 图标 */
+    .video-choice::before {
+      content: "▶";
+      font-size: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    /* hover 图标旋转 */
+    .video-choice:hover::before {
+      transform: rotate(18deg) translateX(2px);
+    }
+
+    /* active（当前选中视频按钮） */
+    .video-choice.active {
+      background-color: rgb(130, 65, 27);
+      color: rgb(235, 228, 212);
+    }
+
+    /* Playlist 大按钮也加 ▶ 图标 */
+    .download-button.playlist::before {
+      content: "▶";
+      font-size: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .download-button.playlist:hover::before {
+      transform: rotate(18deg) translateX(2px);
     }
 
     .contact-email {
@@ -185,11 +193,6 @@
       text-decoration: none;
     }
 
-    .contact-email a:hover {
-      text-decoration: underline;
-    }
-
-    /* 手机优化：保留居中，同时微调宽度 */
     @media (max-width: 600px) {
       body {
         align-items: center;
@@ -199,26 +202,14 @@
 
       .page {
         padding: 16px 12px 24px;
-        min-height: 100vh;
       }
 
       .logo {
         width: 90vw;
-        max-width: 90vw;
-      }
-
-      .logo1-small-second {
-        width: 60vw;
-        max-width: 60vw;
       }
 
       .logo3-second {
         width: 70vw;
-        max-width: 70vw;
-      }
-
-      .logo-small {
-        width: 30vw;
       }
 
       .logo-footer-second {
@@ -239,7 +230,6 @@
   <!-- ░░░ 第 1 页 ░░░ -->
   <div id="page1" class="page active">
 
-    <!-- 顶部：logofp.png，已替换 -->
     <img src="logofp.png" class="logo" alt="Logo Intro" />
 
     <div style="font-size:20px; margin-bottom:10px;">
@@ -251,17 +241,14 @@
       <button onclick="checkPassword()">Submit</button>
     </div>
 
-    <!-- 第一页底部：logo1.png -->
-    <img src="logo1.png" class="logo-small" alt="Logo Bottom" />
+    <img src="logo.png" class="logo-footer-second" alt="Footer Logo Page 1" />
   </div>
+
 
   <!-- ░░░ 第 2 页 ░░░ -->
   <div id="page2" class="page">
 
-    <!-- 顶部：logo1（第二页版本） -->
-    <img src="logo1.png" class="logo1-small-second" alt="Logo1 Second" />
-
-    <!-- 缩小 50% 后的 Logo3 -->
+    <!-- Logo3（缩小 50%） -->
     <img src="logo3.png" class="logo3-second" alt="Logo3 Second" />
 
     <div class="section-title">Cappy the Acorn Crochet Pattern</div>
@@ -276,32 +263,38 @@
       <iframe
         id="cappyPlayer"
         src="https://www.youtube.com/embed/NrT-XzwVBqE"
-        allowfullscreen>
-      </iframe>
+        allowfullscreen></iframe>
     </div>
 
+    <!-- 视频按钮（带 hover 旋转图标 & active 高亮） -->
     <div class="video-buttons">
-      <button class="video-choice" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
+      <button class="video-choice active" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
         Part 1: Nut
       </button>
+
       <button class="video-choice" data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
         Part 2: Cap
       </button>
+
       <button class="video-choice" data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
         Part 3: Stem
       </button>
+
       <button class="video-choice" data-video="https://www.youtube.com/embed/MK3BJYTtreY">
         Part 4: Joining the Cap and Stem
       </button>
+
       <button class="video-choice" data-video="https://www.youtube.com/embed/FxDK50NTeIA">
         Part 5: Joining the Nut and Cap
       </button>
     </div>
 
+    <!-- Playlist 按钮 with ▶ 图标 -->
     <a
-      class="download-button"
+      class="download-button playlist"
       href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
-      target="_blank">
+      target="_blank"
+      style="margin-top:12px;">
       Watch Full Playlist on YouTube
     </a>
 
@@ -309,9 +302,9 @@
       Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
     </div>
 
-    <!-- ⭐ 第二页最底部：logo.png，比第一页 logo1 再小 20% ⭐ -->
-    <img src="logo.png" class="logo-footer-second" alt="Footer Logo" />
+    <img src="logo.png" class="logo-footer-second" alt="Footer Logo Page 2" />
   </div>
+
 
   <script>
     function checkPassword() {
@@ -324,10 +317,20 @@
       }
     }
 
-    // 切换视频
-    document.querySelectorAll(".video-choice").forEach(btn => {
+    /* 切换视频 + 设置按钮高亮 */
+    const videoButtons = document.querySelectorAll(".video-choice");
+    const player = document.getElementById("cappyPlayer");
+
+    videoButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        document.getElementById("cappyPlayer").src = btn.dataset.video;
+        // 换视频
+        player.src = btn.dataset.video;
+
+        // 移除高亮
+        videoButtons.forEach(b => b.classList.remove("active"));
+
+        // 当前按钮高亮
+        btn.classList.add("active");
       });
     });
   </script>
