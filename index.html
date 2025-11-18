@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <title>Protected Video</title>
 
+  <!-- ✅ 让手机浏览器用设备宽度排版 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     * { box-sizing: border-box; }
 
@@ -24,8 +27,10 @@
       align-items: center;
       padding: 20px;
       width: 100%;
+      max-width: 960px;
       text-align: center;
     }
+
     .page.active { display: flex; }
 
     .logo {
@@ -36,7 +41,7 @@
       margin-bottom: 24px;
     }
 
-    /* 第一页底部 logo1 */
+    /* 第 1 页底部 logo1 */
     .logo-small {
       width: 20vw;
       max-width: 120px;
@@ -45,18 +50,16 @@
       margin-top: 40px;
     }
 
-    /* 第二页顶部 logo1：放大一倍 */
+    /* 第 2 页顶部的 logo1：放大一倍 */
     .logo1-small-second {
       width: 40vw;
       max-width: 200px;
       min-width: 120px;
       height: auto;
-
-      /* 空白减少 80%（原 20vw → 4vw） */
-      margin-bottom: 4vw;
+      margin-bottom: 4vw; /* 中间空白（适中一点） */
     }
 
-    /* 第二页 Logo3：缩小 20% */
+    /* 第 2 页 Logo3：缩小 20% 后的尺寸 */
     .logo3-second {
       width: 64vw;
       max-width: 520px;
@@ -73,6 +76,7 @@
       justify-content: center;
       margin-top: 10px;
     }
+
     input[type="password"] {
       padding: 10px 14px;
       font-size: 16px;
@@ -80,6 +84,7 @@
       border: 1px solid #ccc;
       min-width: 200px;
     }
+
     button {
       padding: 10px 18px;
       font-size: 16px;
@@ -88,6 +93,10 @@
       cursor: pointer;
       background-color: #333;
       color: #fff;
+    }
+
+    button:hover {
+      opacity: 0.9;
     }
 
     /* Pattern & Playlist 按钮 */
@@ -103,23 +112,30 @@
       font-weight: bold;
     }
 
+    .download-button:hover {
+      opacity: 0.9;
+    }
+
     .section-title {
       font-size: 22px;
       font-weight: bold;
       margin: 16px 0 8px 0;
     }
 
-    /* 视频框 */
+    /* 视频容器：自适应 16:9 */
     .video-container {
       position: relative;
       width: 90vw;
       max-width: 960px;
+      margin-top: 8px;
     }
+
     .video-container::before {
       content: "";
       display: block;
-      padding-top: 56.25%;
+      padding-top: 56.25%; /* 16:9 */
     }
+
     .video-container iframe {
       position: absolute;
       inset: 0;
@@ -141,7 +157,7 @@
 
     .video-choice {
       width: 80%;
-      max-width: 300px;
+      max-width: 320px;
       padding: 12px 18px;
       border-radius: 8px;
       background-color: #333;
@@ -152,7 +168,10 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    .video-choice:hover { background-color: #555; }
+
+    .video-choice:hover {
+      background-color: #555;
+    }
 
     .contact-email {
       margin-top: 24px;
@@ -160,12 +179,74 @@
       color: #555;
     }
 
+    .contact-email a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .contact-email a:hover {
+      text-decoration: underline;
+    }
+
+    /* ✅ 针对手机优化（小屏幕） */
+    @media (max-width: 600px) {
+      body {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .page {
+        padding: 16px 12px 32px;
+      }
+
+      .logo {
+        width: 90vw;
+        max-width: 90vw;
+        min-width: 0;
+      }
+
+      .logo1-small-second {
+        width: 50vw;
+        max-width: 50vw;
+        min-width: 0;
+        margin-bottom: 16px;
+      }
+
+      .logo3-second {
+        width: 90vw;
+        max-width: 90vw;
+        min-width: 0;
+      }
+
+      .logo-small {
+        width: 30vw;
+        max-width: 100px;
+        min-width: 0;
+      }
+
+      .video-container {
+        width: 100%;
+      }
+
+      .video-choice,
+      .download-button {
+        width: 100%;
+        max-width: 360px;
+      }
+    }
+
+    /* ✅ 大屏幕时稍微收窄内容，视觉更集中 */
+    @media (min-width: 1024px) {
+      .page {
+        padding: 40px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ░░░ 第 1 页 ░░░ -->
+  <!-- ░░░ 第 1 页：密码页面 ░░░ -->
   <div id="page1" class="page active">
     <img src="logo3.png" class="logo" alt="Logo 3" />
 
@@ -181,7 +262,7 @@
     <img src="logo1.png" class="logo-small" alt="Logo1 Bottom" />
   </div>
 
-  <!-- ░░░ 第 2 页 ░░░ -->
+  <!-- ░░░ 第 2 页：Pattern + 视频 ░░░ -->
   <div id="page2" class="page">
 
     <!-- 顶部 Logo1 -->
@@ -196,18 +277,17 @@
       Download PDF Pattern
     </a>
 
-    <!-- ⭐⭐⭐ 你要求修改的标题在这里 ⭐⭐⭐ -->
     <div class="section-title">Cappy the Acorn Video Tutorial</div>
 
     <div class="video-container">
       <iframe
         id="cappyPlayer"
         src="https://www.youtube.com/embed/NrT-XzwVBqE"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
 
-    <!-- Part 按钮：一行一个 -->
     <div class="video-buttons">
       <button class="video-choice" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
         Part 1: Nut
@@ -238,7 +318,6 @@
     </div>
   </div>
 
-
   <script>
     function checkPassword() {
       var pw = document.getElementById("password").value;
@@ -250,7 +329,7 @@
       }
     }
 
-    /* 视频按钮切换 */
+    /* 切换视频 */
     document.querySelectorAll(".video-choice").forEach(btn => {
       btn.addEventListener("click", () => {
         document.getElementById("cappyPlayer").src = btn.dataset.video;
