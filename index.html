@@ -5,7 +5,9 @@
   <title>Protected Video</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -27,7 +29,9 @@
       text-align: center;
     }
 
-    .page.active { display: flex; }
+    .page.active {
+      display: flex;
+    }
 
     .logo {
       width: 70vw;
@@ -37,28 +41,31 @@
       margin-bottom: 24px;
     }
 
-    /* 缩小版 Logo1（再缩小 20%） */
+    /* 第一页底部小 logo1（已缩小，并增加与密码的间距） */
     .logo-small {
       width: 20vw;
       max-width: 120px;
       min-width: 70px;
-      margin-top: 40px; /* 增加与密码输入区的距离 */
       height: auto;
+      margin-top: 40px; /* 与输入密码区域拉大距离 */
     }
 
-    /* 第二页顶部 logo1 缩小 60% */
+    /* 第二页顶部的 logo1 —— 在之前缩小基础上再缩小，并用 margin-bottom 制造一个等高间隔 */
     .logo1-small-second {
-      width: 40vw;
-      max-width: 200px;
-      min-width: 120px;
+      width: 20vw;        /* 小一点的宽度 */
+      max-width: 100px;
+      min-width: 60px;
       height: auto;
-      margin-bottom: 10px;
+
+      /* 这段空白大约等于 logo1 的高度，让 logo1 和 logo3 之间有“同等高度”的距离 */
+      margin-bottom: 20vw;
     }
 
+    /* 第二页的 logo3 —— 放大很多（比普通 logo 大得多） */
     .logo3-second {
-      width: 50vw;
-      max-width: 260px;
-      min-width: 150px;
+      width: 80vw;
+      max-width: 650px;
+      min-width: 300px;
       height: auto;
       margin-bottom: 20px;
     }
@@ -68,6 +75,7 @@
       gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: 10px;
     }
 
     input[type="password"] {
@@ -88,6 +96,10 @@
       color: #fff;
     }
 
+    button:hover {
+      opacity: 0.9;
+    }
+
     .download-button {
       display: inline-block;
       padding: 14px 24px;
@@ -100,6 +112,10 @@
       font-weight: bold;
     }
 
+    .download-button:hover {
+      opacity: 0.9;
+    }
+
     .section-title {
       font-size: 22px;
       font-weight: bold;
@@ -110,12 +126,13 @@
       position: relative;
       width: 90vw;
       max-width: 960px;
+      margin-top: 8px;
     }
 
     .video-container::before {
       content: "";
       display: block;
-      padding-top: 56.25%;
+      padding-top: 56.25%; /* 16:9 */
     }
 
     .video-container iframe {
@@ -147,7 +164,9 @@
       transition: 0.2s;
     }
 
-    .video-choice:hover { background-color: #555; }
+    .video-choice:hover {
+      background-color: #555;
+    }
 
     .contact-email {
       margin-top: 24px;
@@ -159,14 +178,24 @@
       color: #0066cc;
       text-decoration: none;
     }
+
+    .contact-email a:hover {
+      text-decoration: underline;
+    }
+
+    @media (min-width: 1024px) {
+      .logo {
+        max-width: 540px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- PAGE 1 -->
+  <!-- ░░░ 第一页：密码页面 ░░░ -->
   <div id="page1" class="page active">
-
+    <!-- 顶部 Logo3 -->
     <img src="logo3.png" class="logo" alt="Logo 3" />
 
     <div style="font-size: 20px; margin-bottom: 10px;">
@@ -178,17 +207,17 @@
       <button onclick="checkPassword()">Submit</button>
     </div>
 
-    <!-- 缩小后的 Logo1 -->
+    <!-- 底部小 Logo1（更小、距离更大） -->
     <img src="logo1.png" class="logo-small" alt="Logo Bottom" />
   </div>
 
-  <!-- PAGE 2 -->
+  <!-- ░░░ 第二页：Pattern + 视频 ░░░ -->
   <div id="page2" class="page">
 
-    <!-- 改成 logo1 (缩小 60%) -->
-    <img src="logo1.png" class="logo1-small-second" alt="Logo1 Small Second Page" />
+    <!-- 顶部小 Logo1（再缩小 50%） -->
+    <img src="logo1.png" class="logo1-small-second" alt="Logo1 Second Page" />
 
-    <!-- 再加上 logo3 -->
+    <!-- 下方放大的 Logo3 -->
     <img src="logo3.png" class="logo3-second" alt="Logo3 Second Page" />
 
     <div class="section-title">Cappy the Acorn Crochet Pattern</div>
@@ -200,39 +229,46 @@
     <div class="section-title">Cappy The Acorn Video</div>
 
     <div class="video-container">
-      <iframe id="cappyPlayer"
+      <iframe
+        id="cappyPlayer"
         src="https://www.youtube.com/embed/NrT-XzwVBqE"
-        allowfullscreen>
-      </iframe>
+        allowfullscreen
+      ></iframe>
     </div>
 
     <div class="video-buttons">
-      <button class="video-choice" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
+      <button class="video-choice"
+        data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
         Part 1: Nut
       </button>
 
-      <button class="video-choice" data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
+      <button class="video-choice"
+        data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
         Part 2: Cap
       </button>
 
-      <button class="video-choice" data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
+      <button class="video-choice"
+        data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
         Part 3: Stem
       </button>
 
-      <button class="video-choice" data-video="https://www.youtube.com/embed/MK3BJYTtreY">
+      <button class="video-choice"
+        data-video="https://www.youtube.com/embed/MK3BJYTtreY">
         Part 4: Joining the Cap and Stem
       </button>
 
-      <button class="video-choice" data-video="https://www.youtube.com/embed/FxDK50NTeIA">
+      <button class="video-choice"
+        data-video="https://www.youtube.com/embed/FxDK50NTeIA">
         Part 5: Joining the Nut and Cap
       </button>
     </div>
 
-    <!-- 新按钮：Watch Full Playlist -->
+    <!-- 跳转到完整播放列表 -->
     <a
       class="download-button"
       href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
-      target="_blank">
+      target="_blank"
+    >
       Watch Full Playlist on YouTube
     </a>
 
@@ -242,9 +278,12 @@
   </div>
 
   <script>
+    // 密码检查
     function checkPassword() {
       var input = document.getElementById("password").value;
-      if (input === "cappy") {
+      var correctPassword = "cappy";
+
+      if (input === correctPassword) {
         document.getElementById("page1").classList.remove("active");
         document.getElementById("page2").classList.add("active");
       } else {
@@ -252,12 +291,14 @@
       }
     }
 
+    // 切换视频
     const videoButtons = document.querySelectorAll(".video-choice");
     const player = document.getElementById("cappyPlayer");
 
-    videoButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        player.src = btn.dataset.video;
+    videoButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const url = button.getAttribute("data-video");
+        player.src = url;
       });
     });
   </script>
