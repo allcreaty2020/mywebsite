@@ -4,63 +4,193 @@
   <meta charset="UTF-8">
   <title>Protected Video</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
       background-color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    img.logo {
-      max-width: 200px;
-      margin-bottom: 20px;
-    }
-    #login {
-      margin-top: 20px;
-    }
-    #content {
+
+    .page {
       display: none;
-      margin-top: 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      width: 100%;
     }
-    input[type="password"], button {
-      padding: 10px;
-      margin: 5px;
+
+    .page.active {
+      display: flex;
+    }
+
+    .logo {
+      width: 70vw;
+      max-width: 480px;
+      min-width: 200px;
+      height: auto;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .logo-second {
+      margin-bottom: 16px;
+    }
+
+    .password-box {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    input[type="password"] {
+      padding: 10px 14px;
       font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      min-width: 180px;
     }
-    iframe {
-      width: 80%;
-      max-width: 800px;
-      height: 450px;
-      border-radius: 10px;
+
+    button {
+      padding: 10px 18px;
+      font-size: 16px;
+      border-radius: 6px;
       border: none;
-      margin-top: 20px;
+      cursor: pointer;
+      background-color: #333;
+      color: #fff;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .video-container {
+      position: relative;
+      width: 90vw;
+      max-width: 960px;
+      margin-top: 8px;
+    }
+
+    .video-container::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%; /* 16:9 */
+    }
+
+    .video-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 16px 0 8px 0;
+      text-align: center;
+    }
+
+    .download-link {
+      font-size: 16px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .download-link a {
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+
+    .contact-email {
+      margin-top: 24px;
+      font-size: 14px;
+      text-align: center;
+      color: #555;
+    }
+
+    .contact-email a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .contact-email a:hover {
+      text-decoration: underline;
+    }
+
+    @media (min-width: 1024px) {
+      .logo {
+        max-width: 540px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Logo -->
-  <img src="logo.png" alt="Logo" class="logo">
-  
-  <!-- Password section -->
-  <div id="login">
-    <h2>Please enter password</h2>
-    <input type="password" id="password" placeholder="Enter password">
-    <button onclick="checkPassword()">Submit</button>
+
+  <!-- 页面 1：Logo1 + 密码输入（密码改为 cappy） -->
+  <div id="page1" class="page active">
+    <!-- 替换为你的第一个 logo 文件名 -->
+    <img src="logo1.png" alt="Logo 1" class="logo">
+
+    <div class="password-box">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="checkPassword()">Submit</button>
+    </div>
   </div>
 
-  <!-- Hidden content -->
-  <div id="content">
-    <iframe src="https://www.youtube.com/embed/mw8CFZbegPY" allowfullscreen></iframe>
+  <!-- 页面 2：Logo2 + PDF 下载 + YouTube 播放列表 + 联系邮箱 -->
+  <div id="page2" class="page">
+    <!-- 替换为你的第二个 logo 文件名 -->
+    <img src="logo2.png" alt="Logo 2" class="logo logo-second">
+
+    <!-- 1. PDF Download -->
+    <div class="section-title">Cappy The Acorn Pattern Pdf</div>
+    <div class="download-link">
+      <!-- 假设 PDF 文件名为：Cappy The Acorn 11.9.pdf，并与本 HTML 在同一目录 -->
+      <a href="Cappy%20The%20Acorn%2011.9.pdf" download>
+        Download pattern "Cappy The Acorn Pattern Pdf"
+      </a>
+    </div>
+
+    <!-- 2. YouTube Playlist Video -->
+    <div class="section-title">Cappy The Acorn Video</div>
+    <div class="video-container">
+      <!-- 播放列表的 iframe 写法：embed/videoseries?list=... -->
+      <iframe
+        src="https://www.youtube.com/embed/videoseries?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- 3. Contact Email -->
+    <div class="contact-email">
+      Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
+    </div>
   </div>
 
   <script>
     function checkPassword() {
       var input = document.getElementById("password").value;
-      var correctPassword = "123456"; // Change this to your own password
+      var correctPassword = "cappy"; // 新密码
+
       if (input === correctPassword) {
-        document.getElementById("login").style.display = "none";   // 隐藏输入区
-        document.getElementById("content").style.display = "block"; // 显示视频
+        document.getElementById("page1").classList.remove("active");
+        document.getElementById("page2").classList.add("active");
       } else {
-        alert("Wrong password, please try again!");
+        alert("Password is incorrect. Please try again.");
       }
     }
   </script>
