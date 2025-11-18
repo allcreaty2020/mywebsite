@@ -50,7 +50,7 @@
       margin-bottom: 24px;
     }
 
-    /* 第一页和第二页底部小 logo */
+    /* 小 logo 尺寸（第一页底部 & 第二页底部） */
     .logo-footer-second {
       width: 16vw;
       max-width: 96px;
@@ -59,8 +59,9 @@
       margin-top: 24px;
     }
 
-    /* 第二页 Logo3（缩小 50%） */
+    /* 第二页Logo3（缩小 50%）+ ⭐ 上方留白 16vw ⭐ */
     .logo3-second {
+      margin-top: 16vw;   /* ⭐ 新增留白：logo 高度的一半 ⭐ */
       width: 32vw;
       max-width: 260px;
       min-width: 120px;
@@ -68,7 +69,7 @@
       margin-bottom: 20px;
     }
 
-    /* 密码输入 */
+    /* 密码输入区 */
     .password-box {
       display: flex;
       gap: 8px;
@@ -85,13 +86,13 @@
       min-width: 200px;
     }
 
-    /* 按钮（全部无边框） */
+    /* 所有按钮（无边框） */
     button,
     .download-button,
     .video-choice {
       background-color: transparent;
       color: #000;
-      border: none;  /* ★ 去掉边框 ★ */
+      border: none;
       padding: 12px 20px;
       border-radius: 8px;
       font-size: 16px;
@@ -105,7 +106,6 @@
       gap: 8px;
     }
 
-    /* hover 效果 */
     button:hover,
     .download-button:hover,
     .video-choice:hover {
@@ -113,14 +113,13 @@
       color: rgb(235, 228, 212);
     }
 
-    /* Section title */
     .section-title {
       font-size: 22px;
       font-weight: bold;
       margin: 16px 0 8px 0;
     }
 
-    /* 视频容器 */
+    /* 视频框 */
     .video-container {
       position: relative;
       width: 90vw;
@@ -143,7 +142,7 @@
       border: none;
     }
 
-    /* Part 按钮组合 */
+    /* 视频按钮排列 */
     .video-buttons {
       margin-top: 14px;
       width: 100%;
@@ -153,25 +152,24 @@
       gap: 12px;
     }
 
-    /* ▶ 图标 */
+    /* Part 按钮图标 */
     .video-choice::before {
       content: "▶";
       font-size: 14px;
       transition: transform 0.25s ease;
     }
 
-    /* hover 图标旋转 */
     .video-choice:hover::before {
       transform: rotate(18deg) translateX(2px);
     }
 
-    /* active（当前选中视频按钮） */
+    /* 当前选中视频按钮 */
     .video-choice.active {
       background-color: rgb(130, 65, 27);
       color: rgb(235, 228, 212);
     }
 
-    /* Playlist 大按钮也加 ▶ 图标 */
+    /* Playlist 大按钮图标 */
     .download-button.playlist::before {
       content: "▶";
       font-size: 14px;
@@ -210,6 +208,7 @@
 
       .logo3-second {
         width: 70vw;
+        margin-top: 22vw; /* 手机留白再多一点更美观 */
       }
 
       .logo-footer-second {
@@ -227,7 +226,7 @@
 
 <body>
 
-  <!-- ░░░ 第 1 页 ░░░ -->
+  <!-- ░░░ Page 1 ░░░ -->
   <div id="page1" class="page active">
 
     <img src="logofp.png" class="logo" alt="Logo Intro" />
@@ -245,10 +244,10 @@
   </div>
 
 
-  <!-- ░░░ 第 2 页 ░░░ -->
+  <!-- ░░░ Page 2 ░░░ -->
   <div id="page2" class="page">
 
-    <!-- Logo3（缩小 50%） -->
+    <!-- 第二页加留白后的 logo3 -->
     <img src="logo3.png" class="logo3-second" alt="Logo3 Second" />
 
     <div class="section-title">Cappy the Acorn Crochet Pattern</div>
@@ -266,7 +265,6 @@
         allowfullscreen></iframe>
     </div>
 
-    <!-- 视频按钮（带 hover 旋转图标 & active 高亮） -->
     <div class="video-buttons">
       <button class="video-choice active" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
         Part 1: Nut
@@ -289,7 +287,6 @@
       </button>
     </div>
 
-    <!-- Playlist 按钮 with ▶ 图标 -->
     <a
       class="download-button playlist"
       href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
@@ -317,19 +314,15 @@
       }
     }
 
-    /* 切换视频 + 设置按钮高亮 */
+    /* 切换视频 + 高亮按钮 */
     const videoButtons = document.querySelectorAll(".video-choice");
     const player = document.getElementById("cappyPlayer");
 
     videoButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        // 换视频
         player.src = btn.dataset.video;
 
-        // 移除高亮
         videoButtons.forEach(b => b.classList.remove("active"));
-
-        // 当前按钮高亮
         btn.classList.add("active");
       });
     });
