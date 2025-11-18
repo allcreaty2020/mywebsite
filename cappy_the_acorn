@@ -1,1 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crochet Pattern – Cappy the Acorn</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    /* 引入 Adobe Clean Regular 字体（放在站点根目录） */
+    @font-face {
+      font-family: 'AdobeClean';
+      src: url('/AdobeClean-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* 背景 + 居中布局 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+
+      background-image: url("/background.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      width: 100%;
+      max-width: 960px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    /* 第二页 Logo3（缩小 50% + 上方留白） */
+    .logo3-second {
+      margin-top: 4.8vw;     /* 桌面端留白 */
+      width: 32vw;
+      max-width: 260px;
+      min-width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* 底部小 logo */
+    .logo-footer-second {
+      width: 16vw;
+      max-width: 96px;
+      min-width: 56px;
+      height: auto;
+      margin-top: 24px;
+    }
+
+    /* 标题：使用 Adobe Clean Regular */
+    .section-title {
+      font-size: 22px;
+      font-weight: normal;
+      margin: 16px 0 8px 0;
+      font-family: 'AdobeClean', Arial, sans-serif;
+    }
+
+    /* 视频 & 按钮使用默认字体即可 */
+    .video-container {
+      position: relative;
+      width: 90vw;
+      max-width: 960px;
+      margin-top: 8px;
+    }
+
+    .video-container::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: none;
+    }
+
+    /* 所有按钮（无边框） */
+    button,
+    .download-button,
+    .video-choice {
+      background-color: transparent;
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    button:hover,
+    .download-button:hover,
+    .video-choice:hover {
+      background-color: rgb(130, 65, 27);
+      color: rgb(235, 228, 212);
+    }
+
+    /* 视频按钮列表 */
+    .video-buttons {
+      margin-top: 14px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* ▶ 图标在 Part 按钮上 */
+    .video-choice::before {
+      content: "▶";
+      font-size: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .video-choice:hover::before {
+      transform: rotate(18deg) translateX(2px);
+    }
+
+    /* 当前选中 Part 高亮 */
+    .video-choice.active {
+      background-color: rgb(130, 65, 27);
+      color: rgb(235, 228, 212);
+    }
+
+    /* Playlist 按钮也加 ▶ 图标 */
+    .download-button.playlist::before {
+      content: "▶";
+      font-size: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .download-button.playlist:hover::before {
+      transform: rotate(18deg) translateX(2px);
+    }
+
+    .contact-email {
+      margin-top: 24px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .contact-email a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      .page {
+        padding: 16px 12px 24px;
+      }
+
+      .logo3-second {
+        width: 70vw;
+        margin-top: 22vw;  /* 手机上保留更舒服的留白 */
+      }
+
+      .logo-footer-second {
+        width: 24vw;
+      }
+
+      .video-choice,
+      .download-button {
+        width: 100%;
+        max-width: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <img src="/logo3.png" class="logo3-second" alt="Cappy the Acorn Logo" />
+
+    <!-- 标题已去掉 “Cappy The Acorn” → 只剩下 Crochet Pattern -->
+    <div class="section-title">Crochet Pattern</div>
+
+    <a class="download-button" href="/Cappy%20The%20Acorn%2011.9.pdf" download>
+      Download PDF Pattern
+    </a>
+
+    <!-- 第二个标题：Video Tutorial -->
+    <div class="section-title">Video Tutorial</div>
+
+    <div class="video-container">
+      <iframe
+        id="cappyPlayer"
+        src="https://www.youtube.com/embed/NrT-XzwVBqE"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Part 按钮 -->
+    <div class="video-buttons">
+      <button class="video-choice active" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
+        Part 1: Nut
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
+        Part 2: Cap
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
+        Part 3: Stem
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/MK3BJYTtreY">
+        Part 4: Joining the Cap and Stem
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/FxDK50NTeIA">
+        Part 5: Joining the Nut and Cap
+      </button>
+    </div>
+
+    <!-- Playlist 按钮（带 ▶ 图标） -->
+    <a
+      class="download-button playlist"
+      href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
+      target="_blank"
+      style="margin-top:12px;">
+      Watch Full Playlist on YouTube
+    </a>
+
+    <div class="contact-email">
+      Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
+    </div>
+
+    <img src="/logo.png" class="logo-footer-second" alt="Allcreaty Footer Logo" />
+  </div>
+
+  <script>
+    /* 切换视频 + 高亮当前按钮 */
+    const videoButtons = document.querySelectorAll(".video-choice");
+    const player = document.getElementById("cappyPlayer");
+
+    videoButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        player.src = btn.dataset.video;
+
+        videoButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
 
