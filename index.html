@@ -36,7 +36,7 @@
       margin-bottom: 24px;
     }
 
-    /* ------- 第 1 页 logo1（底部） ------- */
+    /* 第一页底部 logo1 */
     .logo-small {
       width: 20vw;
       max-width: 120px;
@@ -45,27 +45,27 @@
       margin-top: 40px;
     }
 
-    /* ------- 第 2 页顶部的 Logo1 （放大一倍） ------- */
+    /* 第二页顶部 logo1：放大一倍 */
     .logo1-small-second {
-      width: 40vw;       /* 放大一倍 */
+      width: 40vw;
       max-width: 200px;
       min-width: 120px;
       height: auto;
 
-      /* 空白减少 80%：原本 20vw → 4vw */
+      /* 空白减少 80%（原 20vw → 4vw） */
       margin-bottom: 4vw;
     }
 
-    /* ------- 第 2 页 Logo3 （缩小 20%） ------- */
+    /* 第二页 Logo3：缩小 20% */
     .logo3-second {
-      width: 64vw;     /* 原 80vw → 缩 20% */
+      width: 64vw;
       max-width: 520px;
       min-width: 240px;
       height: auto;
       margin-bottom: 20px;
     }
 
-    /* 密码输入 */
+    /* 密码输入区 */
     .password-box {
       display: flex;
       gap: 8px;
@@ -90,7 +90,7 @@
       color: #fff;
     }
 
-    /* 按钮样式 */
+    /* Pattern & Playlist 按钮 */
     .download-button {
       display: inline-block;
       padding: 14px 24px;
@@ -103,7 +103,6 @@
       font-weight: bold;
     }
 
-    /* section title */
     .section-title {
       font-size: 22px;
       font-weight: bold;
@@ -115,7 +114,6 @@
       position: relative;
       width: 90vw;
       max-width: 960px;
-      margin-top: 8px;
     }
     .video-container::before {
       content: "";
@@ -131,7 +129,7 @@
       border-radius: 12px;
     }
 
-    /* ------- 视频按钮：每个独占一行 ------- */
+    /* 视频按钮（每个独占一行） */
     .video-buttons {
       margin-top: 14px;
       width: 100%;
@@ -146,24 +144,22 @@
       max-width: 300px;
       padding: 12px 18px;
       border-radius: 8px;
-      border: none;
       background-color: #333;
       color: white;
       font-size: 15px;
       font-weight: bold;
+      border: none;
       cursor: pointer;
       transition: 0.2s;
     }
-
-    .video-choice:hover {
-      background-color: #555;
-    }
+    .video-choice:hover { background-color: #555; }
 
     .contact-email {
       margin-top: 24px;
       font-size: 14px;
       color: #555;
     }
+
   </style>
 </head>
 
@@ -185,16 +181,13 @@
     <img src="logo1.png" class="logo-small" alt="Logo1 Bottom" />
   </div>
 
-
   <!-- ░░░ 第 2 页 ░░░ -->
   <div id="page2" class="page">
 
-    <!-- 顶部 Logo1（放大版） -->
+    <!-- 顶部 Logo1 -->
     <img src="logo1.png" class="logo1-small-second" alt="Logo1 Second" />
 
-    <!-- logo1 与 logo3 之间的空白已经自动根据 logo1 高度缩小 -->
-
-    <!-- Logo3 缩小 20% -->
+    <!-- 下方 Logo3 -->
     <img src="logo3.png" class="logo3-second" alt="Logo3 Second" />
 
     <div class="section-title">Cappy the Acorn Crochet Pattern</div>
@@ -203,17 +196,18 @@
       Download PDF Pattern
     </a>
 
-    <div class="section-title">Cappy The Acorn Video</div>
+    <!-- ⭐⭐⭐ 你要求修改的标题在这里 ⭐⭐⭐ -->
+    <div class="section-title">Cappy the Acorn Video Tutorial</div>
 
     <div class="video-container">
       <iframe
         id="cappyPlayer"
         src="https://www.youtube.com/embed/NrT-XzwVBqE"
-        allowfullscreen
-      ></iframe>
+        allowfullscreen>
+      </iframe>
     </div>
 
-    <!-- 五个按钮：一行一按钮 -->
+    <!-- Part 按钮：一行一个 -->
     <div class="video-buttons">
       <button class="video-choice" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
         Part 1: Nut
@@ -235,8 +229,7 @@
     <a
       class="download-button"
       href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
-      target="_blank"
-    >
+      target="_blank">
       Watch Full Playlist on YouTube
     </a>
 
@@ -248,8 +241,8 @@
 
   <script>
     function checkPassword() {
-      var input = document.getElementById("password").value;
-      if (input === "cappy") {
+      var pw = document.getElementById("password").value;
+      if (pw === "cappy") {
         document.getElementById("page1").classList.remove("active");
         document.getElementById("page2").classList.add("active");
       } else {
@@ -257,13 +250,10 @@
       }
     }
 
-    /* 视频切换 */
-    const buttons = document.querySelectorAll(".video-choice");
-    const player = document.getElementById("cappyPlayer");
-
-    buttons.forEach((btn) => {
+    /* 视频按钮切换 */
+    document.querySelectorAll(".video-choice").forEach(btn => {
       btn.addEventListener("click", () => {
-        player.src = btn.dataset.video;
+        document.getElementById("cappyPlayer").src = btn.dataset.video;
       });
     });
   </script>
