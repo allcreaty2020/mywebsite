@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Allcreaty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 自动跳转到 /start/ -->
+  <meta http-equiv="refresh" content="0; url=/start/" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      text-align: center;
+      padding: 40px;
+    }
+    a {
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <p>Redirecting to the start page...</p>
+  <p>If you are not redirected, <a href="/start/">click here</a>.</p>
+
+  <script>
+    // JS 方式再保险跳转一次
+    window.location.replace("/start/");
+  </script>
+</body>
+</html>
