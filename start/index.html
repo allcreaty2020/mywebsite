@@ -9,18 +9,15 @@
   <style>
     * { box-sizing: border-box; }
 
-    /* 全站背景 + 居中 */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-
       background-image: url("/background.jpeg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
-
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -39,7 +36,6 @@
       text-align: center;
     }
 
-    /* 顶部主 logo */
     .logo {
       width: 70vw;
       max-width: 480px;
@@ -48,11 +44,11 @@
       margin-bottom: 24px;
     }
 
-    /* 底部小 logo（和第二页底部统一） */
+    /* ⭐ 底部小 logo — 缩小 20% */
     .logo-footer-second {
-      width: 16vw;
-      max-width: 96px;
-      min-width: 56px;
+      width: 12.8vw;
+      max-width: 77px;
+      min-width: 45px;
       height: auto;
       margin-top: 24px;
     }
@@ -73,7 +69,6 @@
       min-width: 200px;
     }
 
-    /* 所有按钮（透明、无边框） */
     button {
       background-color: transparent;
       color: #000;
@@ -83,12 +78,10 @@
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      text-decoration: none;
       transition: 0.25s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
     }
 
     button:hover {
@@ -97,21 +90,10 @@
     }
 
     @media (max-width: 600px) {
-      body {
-        background-attachment: scroll;
-      }
-
-      .page {
-        padding: 16px 12px 24px;
-      }
-
-      .logo {
-        width: 90vw;
-      }
-
-      .logo-footer-second {
-        width: 24vw;
-      }
+      body { background-attachment: scroll; }
+      .page { padding: 16px 12px 24px; }
+      .logo { width: 90vw; }
+      .logo-footer-second { width: 19.2vw; }
     }
   </style>
 </head>
@@ -135,9 +117,8 @@
 
   <script>
     function checkPassword() {
-      var pw = document.getElementById("password").value;
+      let pw = document.getElementById("password").value;
       if (pw === "cappy") {
-        // 跳转到第二个页面
         window.location.href = "/cappy_the_acorn/";
       } else {
         alert("Password is incorrect. Please try again.");
