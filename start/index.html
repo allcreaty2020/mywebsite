@@ -96,17 +96,18 @@
       align-items: center;
     }
 
-    /* ⭐ updated: 30% bigger icons ⭐ */
+    /* ⭐ updated: icons 30% bigger + softened (opacity 0.72) ⭐ */
     .social-icon {
       width: 44px;
       height: 44px;
+      opacity: 0.72;
       cursor: pointer;
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .social-icon:hover {
       transform: scale(1.18);
-      opacity: 0.8;
+      opacity: 0.88;
     }
 
     @media (max-width: 600px) {
@@ -114,11 +115,10 @@
       .page { padding: 16px 12px 24px; }
       .logo { width: 90vw; }
       .logo-footer-second { width: 19.2vw; }
-
-      /* mobile icons also enlarged 30% */
       .social-icon {
         width: 42px;
         height: 42px;
+        opacity: 0.72;
       }
     }
   </style>
