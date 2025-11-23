@@ -167,8 +167,13 @@
   <script>
     function checkPassword() {
       const pw = document.getElementById("password").value;
+
       if (pw === "cappy") {
+        // 英文页面
         window.location.href = "/cappy_the_acorn/";
+      } else if (pw === "cappych") {
+        // 中文页面
+        window.location.href = "/cappy_the_acorn/cn/";
       } else {
         alert("Password is incorrect. Please try again.");
       }
