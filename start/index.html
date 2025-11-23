@@ -44,17 +44,16 @@
       margin-bottom: 24px;
     }
 
-    /* 底部 logo 缩小 20%（一致） */
+    /* 底部 logo：已缩小 20% */
     .logo-footer-second {
       width: 12.8vw;
       max-width: 77px;
       min-width: 45px;
       height: auto;
       margin-top: 24px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
-    /* 输入框 */
     .password-box {
       display: flex;
       gap: 8px;
@@ -71,7 +70,6 @@
       min-width: 200px;
     }
 
-    /* 按钮 */
     button {
       background-color: transparent;
       color: #000;
@@ -92,28 +90,116 @@
       color: rgb(235, 228, 212);
     }
 
-    /* ⭐ 社交图标栏 ⭐ */
+    /* ⭐ 社交按钮行 ⭐ */
     .social-row {
       display: flex;
-      gap: 20px;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-top: 8px;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
     }
 
-    .social-icon {
-      width: 34px;
-      height: 34px;
-      cursor: pointer;
-      transition: transform 0.25s ease, opacity 0.25s ease;
+    .social-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgb(130, 65, 27);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: bold;
+      color: #000;
+      background-color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: 0.25s ease;
     }
 
-    .social-icon:hover {
-      transform: scale(1.18);
-      opacity: 0.8;
+    .social-circle:hover {
+      background-color: rgb(130, 65, 27);
+      color: rgb(235, 228, 212);
+      transform: scale(1.08);
     }
 
     @media (max-width: 600px) {
       body { background-attachment: scroll; }
       .page { padding: 16px 12px 24px; }
+      .logo { width: 90vw; }
+      .logo-footer-second { width: 19.2vw; }
+      .social-circle {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+    <!-- 顶部大 logo -->
+    <img src="/logofp.png" class="logo" alt="Allcreaty Intro Logo" />
+
+    <div style="font-size:20px; margin-bottom:10px;">
+      Please enter your password
+    </div>
+
+    <div class="password-box">
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <!-- 底部小 logo -->
+    <img src="/logo.png" class="logo-footer-second" alt="Allcreaty Footer Logo" />
+
+    <!-- ⭐ 社交链接一排 ⭐ -->
+    <div class="social-row">
+      <!-- Instagram -->
+      <a
+        class="social-circle"
+        href="https://www.instagram.com/allcreaty?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr"
+        target="_blank"
+        aria-label="Instagram"
+      >IG</a>
+
+      <!-- Facebook -->
+      <a
+        class="social-circle"
+        href="https://www.facebook.com/profile.php?id=61584106500477&mibextid=wwXIfr&mibextid=wwXIfr"
+        target="_blank"
+        aria-label="Facebook"
+      >FB</a>
+
+      <!-- YouTube -->
+      <a
+        class="social-circle"
+        href="https://youtube.com/@allcreaty?si=KsPYKnMkA7Jo4Val"
+        target="_blank"
+        aria-label="YouTube"
+      >YT</a>
+
+      <!-- Etsy -->
+      <a
+        class="social-circle"
+        href="https://allcreaty.etsy.com"
+        target="_blank"
+        aria-label="Etsy"
+      >E</a>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pw = document.getElementById("password").value;
+      if (pw === "cappy") {
+        window.location.href = "/cappy_the_acorn/";
+      } else {
+        alert("Password is incorrect. Please try again.");
+      }
+    }
+  </script>
+
+</body>
+</html>
