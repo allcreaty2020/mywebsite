@@ -52,7 +52,6 @@
       margin-bottom: 20px;
     }
 
-    /* ⭐ 底部 logo — 缩小 20% */
     .logo-footer-second {
       width: 12.8vw;
       max-width: 77px;
@@ -68,7 +67,8 @@
     }
 
     .download-button,
-    .video-choice {
+    .video-choice,
+    .main-download {
       background-color: transparent;
       color: #000;
       border: none;
@@ -91,7 +91,6 @@
       color: rgb(235, 228, 212);
     }
 
-    /* 仅 PDF 下载按钮加下划线 */
     .main-download {
       text-decoration: underline;
       text-underline-offset: 3px;
@@ -164,8 +163,10 @@
       .page { padding: 16px 12px 24px; }
       .logo3-second { width: 70vw; margin-top: 22vw; }
       .logo-footer-second { width: 19.2vw; }
-      .video-choice, .download-button {
-        width: 100%; max-width: 360px;
+      .video-choice,
+      .download-button {
+        width: 100%;
+        max-width: 360px;
       }
     }
   </style>
@@ -179,7 +180,7 @@
 
     <div class="section-title">Crochet Pattern</div>
 
-    <a class="download-button main-download" href="/Cappy%20The%20Acorn%2011.9.pdf" download>
+    <a class="download-button main-download" href="/Cappy%20The%20Acorn%201.9.pdf" download>
       Download PDF Pattern
     </a>
 
@@ -189,21 +190,43 @@
       <iframe id="cappyPlayer" src="https://www.youtube.com/embed/NrT-XzwVBqE" allowfullscreen></iframe>
     </div>
 
+    <!-- ⭐ VIDEO BUTTONS ⭐ -->
     <div class="video-buttons">
-      <button class="video-choice active" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">Part 1: Nut</button>
-      <button class="video-choice" data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">Part 2: Cap</button>
-      <button class="video-choice" data-video="https://www.youtube.com/embed/h4pKxE_wI0o">Part 3: Stem</button>
+
+      <!-- ⭐ NEW BUTTON ABOVE PART 1 ⭐ -->
+      <button
+        class="video-choice"
+        data-video="https://www.youtube.com/embed/nZV_OVpDeI4">
+        Cappy the Acorn
+      </button>
+
+      <button class="video-choice active" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
+        Part 1: Nut
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
+        Part 2: Cap
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
+        Part 3: Stem
+      </button>
+
       <button class="video-choice" data-video="https://www.youtube.com/embed/MK3BJYTtreY">
         Part 4: Joining the Cap and Stem
       </button>
+
       <button class="video-choice" data-video="https://www.youtube.com/embed/FxDK50NTeIA">
         Part 5: Joining the Nut and Cap
       </button>
+
     </div>
 
-    <a class="download-button playlist"
-       href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
-       target="_blank" style="margin-top:12px;">
+    <a
+      class="download-button playlist"
+      href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
+      target="_blank"
+      style="margin-top:12px;">
       Watch Full Playlist on YouTube
     </a>
 
