@@ -43,6 +43,7 @@
       text-align: center;
     }
 
+    /* 顶部 Logo3 */
     .logo3-second {
       margin-top: 4.8vw;
       width: 32vw;
@@ -52,6 +53,7 @@
       margin-bottom: 20px;
     }
 
+    /* 底部小 logo – 缩小 20% */
     .logo-footer-second {
       width: 12.8vw;
       max-width: 77px;
@@ -60,12 +62,14 @@
       margin-top: 24px;
     }
 
+    /* 标题使用 AdobeClean */
     .section-title {
       font-size: 22px;
       font-family: 'AdobeClean', Arial, sans-serif;
       margin: 16px 0 8px 0;
     }
 
+    /* 按钮基础样式 */
     .download-button,
     .video-choice,
     .main-download {
@@ -91,11 +95,13 @@
       color: rgb(235, 228, 212);
     }
 
+    /* PDF 下载加下划线 */
     .main-download {
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
+    /* 视频容器 */
     .video-container {
       position: relative;
       width: 90vw;
@@ -118,6 +124,7 @@
       border: none;
     }
 
+    /* 视频按钮区 */
     .video-buttons {
       margin-top: 14px;
       width: 100%;
@@ -127,6 +134,7 @@
       gap: 12px;
     }
 
+    /* ▶ 图标 */
     .video-choice::before {
       content: "▶";
       font-size: 14px;
@@ -137,11 +145,13 @@
       transform: rotate(18deg) translateX(2px);
     }
 
+    /* 当前选中视频按钮高亮 */
     .video-choice.active {
       background-color: rgb(130, 65, 27);
       color: rgb(235, 228, 212);
     }
 
+    /* Playlist 按钮也带 ▶ */
     .playlist::before {
       content: "▶";
       font-size: 14px;
@@ -176,30 +186,38 @@
 
   <div class="page">
 
+    <!-- 顶部 Logo3 -->
     <img src="/logo3.png" class="logo3-second" alt="Cappy the Acorn Logo" />
 
+    <!-- Crochet Pattern 标题 + PDF 下载 -->
     <div class="section-title">Crochet Pattern</div>
 
-    <a class="download-button main-download" href="/Cappy%20The%20Acorn%201.9.pdf" download>
+    <a class="download-button main-download" href="/Cappy%20The%20Acorn%2011.9.pdf" download>
       Download PDF Pattern
     </a>
 
+    <!-- Video Tutorial 标题 + 播放器 -->
     <div class="section-title">Video Tutorial</div>
 
     <div class="video-container">
-      <iframe id="cappyPlayer" src="https://www.youtube.com/embed/NrT-XzwVBqE" allowfullscreen></iframe>
+      <iframe
+        id="cappyPlayer"
+        src="https://www.youtube.com/embed/NrT-XzwVBqE"
+        allowfullscreen
+      ></iframe>
     </div>
 
-    <!-- ⭐ VIDEO BUTTONS ⭐ -->
+    <!-- 视频按钮区 -->
     <div class="video-buttons">
 
-      <!-- ⭐ NEW BUTTON ABOVE PART 1 ⭐ -->
+      <!-- 新增：总览视频按钮 -->
       <button
         class="video-choice"
         data-video="https://www.youtube.com/embed/nZV_OVpDeI4">
         Cappy the Acorn
       </button>
 
+      <!-- Part 1 默认选中 -->
       <button class="video-choice active" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
         Part 1: Nut
       </button>
@@ -219,9 +237,9 @@
       <button class="video-choice" data-video="https://www.youtube.com/embed/FxDK50NTeIA">
         Part 5: Joining the Nut and Cap
       </button>
-
     </div>
 
+    <!-- Playlist 按钮 -->
     <a
       class="download-button playlist"
       href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
@@ -230,6 +248,7 @@
       Watch Full Playlist on YouTube
     </a>
 
+    <!-- 联系方式 + 底部 logo -->
     <div class="contact-email">
       Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
     </div>
