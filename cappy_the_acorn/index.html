@@ -61,14 +61,12 @@
       margin-top: 24px;
     }
 
-    /* 标题字体 */
     .section-title {
       font-size: 22px;
       font-family: 'AdobeClean', Arial, sans-serif;
       margin: 16px 0 8px 0;
     }
 
-    /* 统一按钮样式 */
     .download-button,
     .video-choice,
     .main-download {
@@ -94,13 +92,11 @@
       color: rgb(235, 228, 212);
     }
 
-    /* 下划线（PDF 下载按钮） */
     .main-download {
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
-    /* 主视频容器 */
     .video-container {
       position: relative;
       width: 90vw;
@@ -123,7 +119,6 @@
       border: none;
     }
 
-    /* 视频按钮区 */
     .video-buttons {
       margin-top: 14px;
       width: 100%;
@@ -148,7 +143,6 @@
       color: rgb(235, 228, 212);
     }
 
-    /* Playlist 按钮 */
     .playlist::before {
       content: "▶";
       font-size: 14px;
@@ -159,33 +153,10 @@
       transform: rotate(18deg) translateX(2px);
     }
 
-    /* Contact */
     .contact-email {
       margin-top: 24px;
       font-size: 14px;
       color: #555;
-    }
-
-    /* ⭐ Social icons row (same as page 1) ⭐ */
-    .social-row {
-      display: flex;
-      gap: 20px;
-      margin-top: 20px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .social-icon {
-      width: 44px;
-      height: 44px;
-      opacity: 0.72;
-      cursor: pointer;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    .social-icon:hover {
-      transform: scale(1.18);
-      opacity: 0.88;
     }
 
     @media (max-width: 600px) {
@@ -197,10 +168,6 @@
       .download-button {
         width: 100%;
         max-width: 360px;
-      }
-      .social-icon {
-        width: 42px;
-        height: 42px;
       }
     }
   </style>
@@ -227,7 +194,7 @@
       <iframe id="cappyPlayer" src="https://www.youtube.com/embed/NrT-XzwVBqE" allowfullscreen></iframe>
     </div>
 
-    <!-- 视频按钮区 → 新增一个按钮 -->
+    <!-- 视频按钮区 -->
     <div class="video-buttons">
 
       <button
@@ -269,27 +236,6 @@
     <!-- 联系方式 -->
     <div class="contact-email">
       Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
-    </div>
-
-    <!-- ⭐ 四个 Social Icons（新增，与第一页一致） ⭐ -->
-    <div class="social-row">
-
-      <a href="https://www.instagram.com/allcreaty?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank">
-        <img src="/instagram.svg" class="social-icon" alt="Instagram" />
-      </a>
-
-      <a href="https://www.facebook.com/profile.php?id=61584106500477&mibextid=wwXIfr&mibextid=wwXIfr" target="_blank">
-        <img src="/facebook.svg" class="social-icon" alt="Facebook" />
-      </a>
-
-      <a href="https://youtube.com/@allcreaty?si=KsPYKnMkA7Jo4Val" target="_blank">
-        <img src="/youtube.svg" class="social-icon" alt="YouTube" />
-      </a>
-
-      <a href="https://allcreaty.etsy.com" target="_blank">
-        <img src="/etsy.svg" class="social-icon" alt="Etsy" />
-      </a>
-
     </div>
 
     <!-- 底部 Logo -->
