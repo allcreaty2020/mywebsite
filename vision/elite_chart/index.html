@@ -59,6 +59,7 @@
       box-shadow: 0 10px 22px rgba(0,0,0,0.12);
       margin-bottom: 18px;
       object-fit: cover;
+      cursor: pointer;
     }
 
     h1 {
@@ -131,32 +132,27 @@
       font-size: 15px;
     }
 
+    /* ✅ All content images clickable */
     .img {
       width: 100%;
       border-radius: 14px;
       margin-top: 14px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 16px;
+    .img:hover {
+      transform: scale(1.01);
+      opacity: 0.95;
     }
 
-    .feature {
-      background: rgba(255,255,255,0.75);
-      border-radius: 14px;
-      padding: 14px 12px;
-      font-size: 14px;
-      line-height: 1.5;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-    }
-
-    .feature strong {
-      display: block;
-      margin-bottom: 6px;
+    /* ✅ Small tip below images */
+    .tap-tip {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #666;
+      opacity: 0.9;
     }
 
     .footer-logo {
@@ -172,7 +168,74 @@
       body { background-attachment: scroll; }
       h1 { font-size: 24px; }
       .hero-sub { font-size: 15px; }
-      .features { grid-template-columns: 1fr; }
+    }
+
+    /* =========================
+       ✅ Image Modal (Zoom View)
+       ========================= */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      width: min(1100px, 96vw);
+      max-height: 92vh;
+      overflow: auto;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      padding: 6px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    }
+
+    .modal-img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(0,0,0,0.65);
+      transform: scale(1.05);
+    }
+
+    .modal-hint {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -185,7 +248,8 @@
       <a href="https://www.amazon.com/dp/B0CRKSMZ39" target="_blank">Buy on Amazon</a>
     </div>
 
-    <img class="hero-img" src="/vision/assets/elite/Elite-7.jpg" alt="Elite Digital Visual Acuity Chart" />
+    <!-- ✅ Hero: Elite-1 -->
+    <img class="hero-img zoomable" src="/vision/assets/elite/Elite-1.png" alt="Elite Digital Visual Acuity Chart" />
 
     <h1>Elite Digital Visual Acuity Chart</h1>
     <div class="hero-sub">
@@ -198,66 +262,65 @@
       <a class="btn" href="/vision/">View Other Products</a>
     </div>
 
-    <!-- Key Features -->
-    <div class="section">
-      <h2>Key Features</h2>
-      <div class="features">
-        <div class="feature">
-          <strong>Compatible with any screen</strong>
-          Works with any TV or monitor with an HDMI port.
-        </div>
-        <div class="feature">
-          <strong>Plug &amp; Play</strong>
-          No PC needed. Easy setup and fast operation.
-        </div>
-        <div class="feature">
-          <strong>High resolution up to 4K</strong>
-          Crisp charts and mirror function available for all charts.
-        </div>
-      </div>
-      <img class="img" src="/vision/assets/elite/Elite-5.jpg" alt="Plug and Play 4K" />
-    </div>
+    <div class="tap-tip">Tip: Click any image to zoom in.</div>
 
-    <!-- Compatible -->
+    <!-- ✅ Elite-2 -->
     <div class="section">
       <h2>Compatible with Any Screen</h2>
       <p>
         Simply connect via HDMI to any TV or monitor. The system is designed for universal compatibility,
         making it easy to integrate into any clinic setup.
       </p>
-      <img class="img" src="/vision/assets/elite/Elite-2.jpg" alt="Compatible with any screen" />
+      <img class="img zoomable" src="/vision/assets/elite/Elite-2.jpg" alt="Compatible with any screen" />
     </div>
 
-    <!-- Charts -->
+    <!-- ✅ Elite-3 -->
     <div class="section">
       <h2>Comprehensive Chart Library</h2>
       <p>
-        Includes a wide range of visual acuity charts and tests for comprehensive assessment, including
-        HOTV, ETDRS, Ishihara color test, astigmatism, contrast, stereopsis, and more.
+        Includes a wide range of charts and tests for comprehensive assessment, including HOTV, ETDRS,
+        Ishihara color test, astigmatism, contrast, stereopsis, and more.
       </p>
-      <img class="img" src="/vision/assets/elite/Elite-1.png" alt="Charts included" />
-      <img class="img" src="/vision/assets/elite/Elite-3.png" alt="Charts included detail" />
+      <img class="img zoomable" src="/vision/assets/elite/Elite-3.png" alt="Charts included detail" />
     </div>
 
-    <!-- Remote -->
+    <!-- ✅ Elite-4 -->
     <div class="section">
       <h2>RF Wireless Remote Control</h2>
       <p>
         The 2.4GHz RF remote provides fast response, long-range control, and fluorescent buttons for use in dark rooms.
         No need to point at the screen.
       </p>
-      <img class="img" src="/vision/assets/elite/Elite-4.png" alt="RF Remote Features" />
-      <img class="img" src="/vision/assets/elite/Elite-6.jpg" alt="Remote Button Guide" />
+      <img class="img zoomable" src="/vision/assets/elite/Elite-4.png" alt="RF Remote Features" />
     </div>
 
-    <!-- In the box -->
+    <!-- ✅ Elite-5 -->
+    <div class="section">
+      <h2>Plug &amp; Play + 4K Resolution</h2>
+      <p>
+        Enjoy plug-and-play convenience with crisp HD charts up to 4K resolution.
+        Mirror function is available for all charts.
+      </p>
+      <img class="img zoomable" src="/vision/assets/elite/Elite-5.jpg" alt="Plug and Play 4K" />
+    </div>
+
+    <!-- ✅ Elite-6 -->
+    <div class="section">
+      <h2>Remote Button Guide</h2>
+      <p>
+        Dedicated chart buttons and intuitive controls allow quick access during testing.
+      </p>
+      <img class="img zoomable" src="/vision/assets/elite/Elite-6.jpg" alt="Remote Button Guide" />
+    </div>
+
+    <!-- ✅ Elite-7 -->
     <div class="section">
       <h2>What's in the Box</h2>
       <p>
         Everything you need is included: Elite HDMI device, RF remote, calibration card, cables, power adapter,
         quick start guide, and accessories.
       </p>
-      <img class="img" src="/vision/assets/elite/Elite-7.jpg" alt="What's in the box" />
+      <img class="img zoomable" src="/vision/assets/elite/Elite-7.jpg" alt="What's in the box" />
     </div>
 
     <div class="btn-row" style="margin-top: 28px;">
@@ -267,5 +330,59 @@
     <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
 
   </div>
+
+  <!-- ✅ Modal -->
+  <div class="modal" id="imgModal">
+    <div class="modal-content" id="modalContent">
+      <button class="close-btn" id="closeModal" aria-label="Close">✕</button>
+      <img class="modal-img" id="modalImg" src="" alt="Zoomed image" />
+    </div>
+    <div class="modal-hint">Click outside the image (or press ESC) to close.</div>
+  </div>
+
+  <script>
+    // ✅ Image Zoom Modal
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeModalBtn = document.getElementById("closeModal");
+    const modalContent = document.getElementById("modalContent");
+    const zoomables = document.querySelectorAll(".zoomable");
+
+    function openModal(src, alt) {
+      modalImg.src = src;
+      modalImg.alt = alt || "Zoomed image";
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+      modalImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    zoomables.forEach(img => {
+      img.addEventListener("click", () => {
+        openModal(img.src, img.alt);
+      });
+    });
+
+    closeModalBtn.addEventListener("click", closeModal);
+
+    // ✅ Click outside image closes modal
+    modal.addEventListener("click", (e) => {
+      if (!modalContent.contains(e.target)) {
+        closeModal();
+      }
+    });
+
+    // ✅ ESC to close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  </script>
+
 </body>
 </html>
