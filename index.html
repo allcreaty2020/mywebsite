@@ -34,6 +34,7 @@
       text-align: center;
     }
 
+    /* Top Logo */
     .top-logo {
       width: 18vw;
       max-width: 150px;
@@ -58,6 +59,7 @@
       line-height: 1.5;
     }
 
+    /* Grid */
     .grid {
       width: 100%;
       display: grid;
@@ -67,6 +69,7 @@
       align-items: stretch;
     }
 
+    /* Title OUTSIDE card */
     .outside-title {
       font-size: 22px;
       font-weight: 900;
@@ -83,6 +86,7 @@
       height: 100%;
     }
 
+    /* Entire card clickable */
     .card-link {
       text-decoration: none;
       color: inherit;
@@ -90,6 +94,7 @@
       display: block;
     }
 
+    /* Card fixed height for desktop consistency */
     .card {
       background: rgba(255,255,255,0.80);
       border-radius: 16px;
@@ -110,6 +115,7 @@
       box-shadow: 0 12px 26px rgba(0,0,0,0.14);
     }
 
+    /* ✅ Image container fixed height */
     .card-img {
       width: 100%;
       max-width: 420px;
@@ -123,11 +129,11 @@
       justify-content: center;
     }
 
-    /* ✅ Desktop FULL image */
+    /* ✅ Desktop + Mobile FULL image */
     .card-img img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: contain; /* ✅ FULL image, no crop */
       object-position: center;
       display: block;
       transition: transform 0.35s ease;
@@ -150,6 +156,7 @@
       padding: 0 8px;
     }
 
+    /* Button style (visual only; full card click) */
     .btn-row {
       display: flex;
       justify-content: center;
@@ -189,6 +196,7 @@
       opacity: 0.95;
     }
 
+    /* Contact email */
     .contact {
       margin-top: 22px;
       font-size: 14px;
@@ -208,7 +216,7 @@
       text-underline-offset: 3px;
     }
 
-    /* ✅ Mobile: also FULL image (no crop) */
+    /* ✅ Mobile unchanged layout */
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
@@ -218,17 +226,11 @@
       .outside-title { font-size: 20px; }
 
       .card { height: auto; }
-
-      .card-img {
-        height: 260px; /* ✅ slightly taller for mobile */
-        background: rgba(255,255,255,0.15);
-      }
-
-      .card-img img {
-        object-fit: contain; /* ✅ keep full image on mobile */
-      }
+      .card-img { height: 260px; background: rgba(255,255,255,0.15); }
+      .card-img img { object-fit: contain; }
     }
 
+    /* Desktop only: subtitle one-line */
     @media (min-width: 900px) {
       .subtitle {
         white-space: nowrap;
@@ -249,7 +251,7 @@
 
     <div class="grid">
 
-      <!-- Vision -->
+      <!-- ✅ Vision -->
       <div class="col">
         <div class="outside-title">Allcreaty Vision</div>
         <a class="card-link" href="/vision/">
@@ -268,7 +270,7 @@
         </a>
       </div>
 
-      <!-- Art -->
+      <!-- ✅ Art (direct to /Art/start/) -->
       <div class="col">
         <div class="outside-title">Allcreaty Art</div>
         <a class="card-link" href="/Art/start/">
