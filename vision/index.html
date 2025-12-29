@@ -63,6 +63,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
       margin-top: 8px;
+      align-items: stretch;
     }
 
     .card {
@@ -74,15 +75,40 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      min-height: 420px;
+      min-height: 460px; /* ✅ keep both equal */
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .card img {
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+    }
+
+    /* ✅ Fixed image box to make heights identical */
+    .card-img {
       width: 100%;
       max-width: 420px;
+      height: 240px; /* ✅ Elite and Remote now same height */
       border-radius: 14px;
+      overflow: hidden;
       margin-bottom: 14px;
-      object-fit: cover;
+      background: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* ✅ fill box so both look consistent */
+      object-position: center;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .card:hover .card-img img {
+      transform: scale(1.03);
     }
 
     .card h2 {
@@ -97,6 +123,11 @@
       color: #333;
       line-height: 1.5;
       max-width: 420px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
     }
 
     .btn-row {
@@ -169,6 +200,10 @@
       h1 { font-size: 24px; }
       .subtitle { font-size: 15px; margin-bottom: 22px; }
       .card { min-height: unset; }
+
+      .card-img {
+        height: 230px; /* ✅ mobile consistent */
+      }
     }
   </style>
 </head>
@@ -178,6 +213,7 @@
 
     <img src="/logo.png" class="top-logo" alt="Allcreaty Logo" />
     <h1>Allcreaty Vision</h1>
+
     <div class="subtitle">
       Professional vision testing solutions designed to work with any screen.
       Explore our products below and purchase securely on Amazon.
@@ -185,9 +221,11 @@
 
     <div class="grid">
 
-      <!-- ✅ Product 1 (Elite) -->
+      <!-- Elite -->
       <div class="card">
-        <img src="/vision/assets/elite/Elite-1.png" alt="Elite Chart Product" />
+        <div class="card-img">
+          <img src="/vision/assets/elite/Elite-1.png" alt="Elite Chart Product" />
+        </div>
         <h2>Elite Digital Visual Acuity Chart</h2>
         <p>
           Plug &amp; play visual acuity chart system with comprehensive testing,
@@ -199,9 +237,11 @@
         </div>
       </div>
 
-      <!-- ✅ Product 2 (Remote) -->
+      <!-- Remote -->
       <div class="card">
-        <img src="/vision/assets/remote/Remote-1.jpg" alt="Remote Control" />
+        <div class="card-img">
+          <img src="/vision/assets/remote/Remote-1.jpg" alt="Remote Control" />
+        </div>
         <h2>RF Wireless Remote Control</h2>
         <p>
           2.4GHz RF remote control compatible with Elite visual acuity charts.
@@ -217,7 +257,6 @@
 
     <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
 
-    <!-- ✅ Contact email -->
     <div class="contact">
       Contact: <a href="mailto:Allcreaty2020@gmail.com">Allcreaty2020@gmail.com</a>
     </div>
