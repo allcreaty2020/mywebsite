@@ -132,7 +132,6 @@
       font-size: 15px;
     }
 
-    /* ✅ Clickable images */
     .img {
       width: 100%;
       border-radius: 14px;
@@ -258,6 +257,28 @@
       color: rgba(255,255,255,0.85);
       margin-top: 10px;
     }
+
+    /* ✅ Contact email (added) */
+    .contact {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #222;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 0 6px 16px rgba(0,0,0,0.20);
+    }
+
+    .contact a {
+      color: #222;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    .contact a:hover {
+      color: rgb(130, 65, 27);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
   </style>
 </head>
 
@@ -284,7 +305,6 @@
 
     <div class="tap-tip">Tip: Click any image to zoom in.</div>
 
-    <!-- Key Features -->
     <div class="section">
       <h2>Key Features</h2>
       <div class="features">
@@ -304,7 +324,6 @@
       <img class="img zoomable" src="/vision/assets/remote/Remote-3.png" alt="Remote Features" />
     </div>
 
-    <!-- Wireless -->
     <div class="section">
       <h2>Omni-directional Wireless Control</h2>
       <p>
@@ -314,7 +333,6 @@
       <img class="img zoomable" src="/vision/assets/remote/Remote-2.jpg" alt="Wireless Remote" />
     </div>
 
-    <!-- Button Guide -->
     <div class="section">
       <h2>Button Guide</h2>
       <p>
@@ -323,7 +341,6 @@
       <img class="img zoomable" src="/vision/assets/remote/Remote-4.jpg" alt="Button Guide" />
     </div>
 
-    <!-- Battery Setup -->
     <div class="section">
       <h2>Battery Setup</h2>
       <p>
@@ -338,6 +355,11 @@
 
     <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
 
+    <!-- ✅ Contact (added) -->
+    <div class="contact">
+      Contact: <a href="mailto:Allcreaty2020@gmail.com">Allcreaty2020@gmail.com</a>
+    </div>
+
   </div>
 
   <!-- ✅ Modal -->
@@ -350,7 +372,6 @@
   </div>
 
   <script>
-    // ✅ Image Zoom Modal
     const modal = document.getElementById("imgModal");
     const modalImg = document.getElementById("modalImg");
     const closeModalBtn = document.getElementById("closeModal");
@@ -371,25 +392,17 @@
     }
 
     zoomables.forEach(img => {
-      img.addEventListener("click", () => {
-        openModal(img.src, img.alt);
-      });
+      img.addEventListener("click", () => openModal(img.src, img.alt));
     });
 
     closeModalBtn.addEventListener("click", closeModal);
 
-    // ✅ Click outside image closes modal
     modal.addEventListener("click", (e) => {
-      if (!modalContent.contains(e.target)) {
-        closeModal();
-      }
+      if (!modalContent.contains(e.target)) closeModal();
     });
 
-    // ✅ ESC to close
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("active")) {
-        closeModal();
-      }
+      if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
     });
   </script>
 
