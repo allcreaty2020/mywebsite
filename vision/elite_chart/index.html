@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Elite Digital Visual Acuity Chart – Allcreaty Vision</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("/background.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+      padding: 26px 16px 50px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      margin-bottom: 24px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: 700;
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 10px;
+      transition: 0.25s ease;
+    }
+
+    .nav a:hover {
+      background-color: rgb(130, 65, 27);
+      color: rgb(235, 228, 212);
+    }
+
+    .hero-img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+      margin-bottom: 18px;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 12px 0 10px;
+      font-weight: 800;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.55;
+      max-width: 740px;
+      margin: 0 auto 18px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 14px 0 28px;
+    }
+
+    .btn {
+      background-color: transparent;
+      color: #000;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn:hover {
+      background-color: rgb(130, 65, 27);
+      color: rgb(235, 228, 212);
+    }
+
+    .btn.primary {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .section {
+      margin-top: 24px;
+      background: rgba(255,255,255,0.80);
+      border-radius: 18px;
+      padding: 18px 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+    }
+
+    .section h2 {
+      margin: 8px 0 14px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .section p {
+      margin: 0 auto;
+      max-width: 760px;
+      color: #333;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .img {
+      width: 100%;
+      border-radius: 14px;
+      margin-top: 14px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.75);
+      border-radius: 14px;
+      padding: 14px 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .footer-logo {
+      width: 12.8vw;
+      max-width: 77px;
+      min-width: 45px;
+      height: auto;
+      margin-top: 34px;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 720px) {
+      body { background-attachment: scroll; }
+      h1 { font-size: 24px; }
+      .hero-sub { font-size: 15px; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div class="nav">
+      <a href="/vision/">← Back to Vision</a>
+      <a href="https://www.amazon.com/dp/B0CRKSMZ39" target="_blank">Buy on Amazon</a>
+    </div>
+
+    <img class="hero-img" src="/vision/assets/elite/Elite-7.jpg" alt="Elite Digital Visual Acuity Chart" />
+
+    <h1>Elite Digital Visual Acuity Chart</h1>
+    <div class="hero-sub">
+      A complete plug &amp; play vision testing solution designed to work with any HDMI screen.
+      Supports 4K resolution and includes a comprehensive set of clinical charts and tests.
+    </div>
+
+    <div class="btn-row">
+      <a class="btn primary" href="https://www.amazon.com/dp/B0CRKSMZ39" target="_blank">Buy on Amazon</a>
+      <a class="btn" href="/vision/">View Other Products</a>
+    </div>
+
+    <!-- Key Features -->
+    <div class="section">
+      <h2>Key Features</h2>
+      <div class="features">
+        <div class="feature">
+          <strong>Compatible with any screen</strong>
+          Works with any TV or monitor with an HDMI port.
+        </div>
+        <div class="feature">
+          <strong>Plug &amp; Play</strong>
+          No PC needed. Easy setup and fast operation.
+        </div>
+        <div class="feature">
+          <strong>High resolution up to 4K</strong>
+          Crisp charts and mirror function available for all charts.
+        </div>
+      </div>
+      <img class="img" src="/vision/assets/elite/Elite-5.jpg" alt="Plug and Play 4K" />
+    </div>
+
+    <!-- Compatible -->
+    <div class="section">
+      <h2>Compatible with Any Screen</h2>
+      <p>
+        Simply connect via HDMI to any TV or monitor. The system is designed for universal compatibility,
+        making it easy to integrate into any clinic setup.
+      </p>
+      <img class="img" src="/vision/assets/elite/Elite-2.jpg" alt="Compatible with any screen" />
+    </div>
+
+    <!-- Charts -->
+    <div class="section">
+      <h2>Comprehensive Chart Library</h2>
+      <p>
+        Includes a wide range of visual acuity charts and tests for comprehensive assessment, including
+        HOTV, ETDRS, Ishihara color test, astigmatism, contrast, stereopsis, and more.
+      </p>
+      <img class="img" src="/vision/assets/elite/Elite-1.png" alt="Charts included" />
+      <img class="img" src="/vision/assets/elite/Elite-3.png" alt="Charts included detail" />
+    </div>
+
+    <!-- Remote -->
+    <div class="section">
+      <h2>RF Wireless Remote Control</h2>
+      <p>
+        The 2.4GHz RF remote provides fast response, long-range control, and fluorescent buttons for use in dark rooms.
+        No need to point at the screen.
+      </p>
+      <img class="img" src="/vision/assets/elite/Elite-4.png" alt="RF Remote Features" />
+      <img class="img" src="/vision/assets/elite/Elite-6.jpg" alt="Remote Button Guide" />
+    </div>
+
+    <!-- In the box -->
+    <div class="section">
+      <h2>What's in the Box</h2>
+      <p>
+        Everything you need is included: Elite HDMI device, RF remote, calibration card, cables, power adapter,
+        quick start guide, and accessories.
+      </p>
+      <img class="img" src="/vision/assets/elite/Elite-7.jpg" alt="What's in the box" />
+    </div>
+
+    <div class="btn-row" style="margin-top: 28px;">
+      <a class="btn primary" href="https://www.amazon.com/dp/B0CRKSMZ39" target="_blank">Buy Elite on Amazon</a>
+    </div>
+
+    <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
+
+  </div>
+</body>
+</html>
