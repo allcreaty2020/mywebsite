@@ -34,6 +34,7 @@
       text-align: center;
     }
 
+    /* ✅ Main Title */
     h1 {
       font-size: 28px;
       margin: 42px 0 16px 0;
@@ -57,13 +58,14 @@
       align-items: stretch;
     }
 
-    /* ✅ Vision / Art titles match h1 style */
+    /* ✅ Vision / Art title smaller than h1 */
     .outside-title {
-      font-size: 26px;
-      font-weight: 700;
+      font-size: 24px;   /* smaller than h1 */
+      font-weight: 700;  /* same style */
       margin-bottom: 12px;
       color: #111;
       text-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      line-height: 1.15;
     }
 
     .col {
@@ -100,7 +102,6 @@
       box-shadow: 0 12px 26px rgba(0,0,0,0.14);
     }
 
-    /* ✅ Image container with one-line top padding */
     .card-img {
       width: 100%;
       max-width: 420px;
@@ -171,7 +172,6 @@
       text-decoration: none;
     }
 
-    /* ✅ Footer logo preserved */
     .footer-logo {
       width: 12.8vw;
       max-width: 77px;
@@ -181,7 +181,6 @@
       opacity: 0.95;
     }
 
-    /* ✅ Contact with two emails */
     .contact {
       margin-top: 18px;
       font-size: 14px;
@@ -207,7 +206,11 @@
       .grid { grid-template-columns: 1fr; }
       h1 { font-size: 24px; margin-top: 26px; }
       .subtitle { font-size: 15px; margin-bottom: 20px; }
-      .outside-title { font-size: 22px; }
+
+      /* ✅ Mobile smaller title */
+      .outside-title {
+        font-size: 20px;
+      }
 
       .card { height: auto; }
 
@@ -215,10 +218,6 @@
         height: 276px;
         background: rgba(255,255,255,0.15);
         padding-top: 14px;
-      }
-
-      .card-img img {
-        object-fit: contain;
       }
     }
 
@@ -283,10 +282,8 @@
 
     </div>
 
-    <!-- ✅ Footer logo preserved -->
     <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
 
-    <!-- ✅ Contact section -->
     <div class="contact">
       Vision: <a href="mailto:Allcreatyvision@gmail.com">Allcreatyvision@gmail.com</a><br />
       Art: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
