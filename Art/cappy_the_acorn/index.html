@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crochet Pattern – Cappy the Acorn</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    @font-face {
+      font-family: 'AdobeClean';
+      src: url('/AdobeClean-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("/background.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      width: 100%;
+      max-width: 960px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .logo3-second {
+      margin-top: 4.8vw;
+      width: 32vw;
+      max-width: 260px;
+      min-width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .logo-footer-second {
+      width: 12.8vw;
+      max-width: 77px;
+      min-width: 45px;
+      height: auto;
+      margin-top: 24px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-family: 'AdobeClean', Arial, sans-serif;
+      margin: 16px 0 8px 0;
+    }
+
+    .download-button,
+    .video-choice,
+    .main-download {
+      background-color: transparent;
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .download-button:hover,
+    .video-choice:hover {
+      background-color: rgb(130, 65, 27);
+      color: rgb(235, 228, 212);
+    }
+
+    .main-download {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 90vw;
+      max-width: 960px;
+      margin-top: 8px;
+    }
+
+    .video-container::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: none;
+    }
+
+    .video-buttons {
+      margin-top: 14px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .video-choice::before {
+      content: "▶";
+      font-size: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .video-choice:hover::before {
+      transform: rotate(18deg) translateX(2px);
+    }
+
+    .video-choice.active {
+      background-color: rgb(130, 65, 27);
+      color: rgb(235, 228, 212);
+    }
+
+    .playlist::before {
+      content: "▶";
+      font-size: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .playlist:hover::before {
+      transform: rotate(18deg) translateX(2px);
+    }
+
+    .contact-email {
+      margin-top: 24px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      body { background-attachment: scroll; }
+      .page { padding: 16px 12px 24px; }
+      .logo3-second { width: 70vw; margin-top: 22vw; }
+      .logo-footer-second { width: 19.2vw; }
+      .video-choice,
+      .download-button {
+        width: 100%;
+        max-width: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <img src="/logo3.png" class="logo3-second" alt="Cappy the Acorn Logo" />
+
+    <div class="section-title">Crochet Pattern</div>
+
+    <a class="download-button main-download" href="/Cappy%20The%20Acorn%2011.9.pdf" download>
+      Download PDF Pattern
+    </a>
+
+    <div class="section-title">Video Tutorial</div>
+
+    <div class="video-container">
+      <iframe id="cappyPlayer" src="https://www.youtube.com/embed/NrT-XzwVBqE" allowfullscreen></iframe>
+    </div>
+
+    <div class="video-buttons">
+      <button class="video-choice" data-video="https://www.youtube.com/embed/nZV_OVpDeI4">
+        Cappy the Acorn
+      </button>
+
+      <button class="video-choice active" data-video="https://www.youtube.com/embed/NrT-XzwVBqE">
+        Part 1: Nut
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/Nt1fLHxFxFk">
+        Part 2: Cap
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/h4pKxE_wI0o">
+        Part 3: Stem
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/MK3BJYTtreY">
+        Part 4: Joining the Cap and Stem
+      </button>
+
+      <button class="video-choice" data-video="https://www.youtube.com/embed/FxDK50NTeIA">
+        Part 5: Joining the Nut and Cap
+      </button>
+    </div>
+
+    <a class="download-button playlist"
+       href="https://www.youtube.com/playlist?list=PL4emmv00y2eX2fsQef0tG8yCqG6rhXMTm"
+       target="_blank"
+       style="margin-top:12px;">
+      Watch Full Playlist on YouTube
+    </a>
+
+    <div class="contact-email">
+      Contact: <a href="mailto:Allcreatyart@gmail.com">Allcreatyart@gmail.com</a>
+    </div>
+
+    <img src="/logo.png" class="logo-footer-second" alt="Allcreaty Footer Logo" />
+
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".video-choice");
+    const player = document.getElementById("cappyPlayer");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        player.src = btn.dataset.video;
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
