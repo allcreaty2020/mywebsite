@@ -57,6 +57,7 @@
       line-height: 1.5;
     }
 
+    /* ✅ Grid with two columns */
     .grid {
       width: 100%;
       display: grid;
@@ -64,6 +65,25 @@
       gap: 18px;
       margin-top: 8px;
       align-items: stretch;
+    }
+
+    /* ✅ Each product column */
+    .col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* ✅ Title OUTSIDE card */
+    .outside-title {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 12px;
+      letter-spacing: 0.3px;
+      color: #111;
+      text-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      max-width: 420px;
     }
 
     .card {
@@ -75,7 +95,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      min-height: 470px;
+      min-height: 440px;
+      width: 100%;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
@@ -84,11 +105,11 @@
       box-shadow: 0 12px 26px rgba(0,0,0,0.14);
     }
 
-    /* ✅ Fixed image box but FULL image shown */
+    /* ✅ Image container full image shown */
     .card-img {
       width: 100%;
       max-width: 420px;
-      height: 260px; /* ✅ slightly taller to reduce blank space */
+      height: 260px;
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 14px;
@@ -101,7 +122,7 @@
     .card-img img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* ✅ FULL IMAGE (no cropping) */
+      object-fit: contain; /* ✅ FULL IMAGE */
       object-position: center;
       display: block;
       transition: transform 0.35s ease;
@@ -109,12 +130,6 @@
 
     .card:hover .card-img img {
       transform: scale(1.02);
-    }
-
-    .card h2 {
-      font-size: 20px;
-      margin: 4px 0 8px;
-      font-weight: 700;
     }
 
     .card p {
@@ -173,7 +188,7 @@
       opacity: 0.95;
     }
 
-    /* ✅ Contact email */
+    /* ✅ Contact */
     .contact {
       margin-top: 22px;
       font-size: 14px;
@@ -200,15 +215,16 @@
       h1 { font-size: 24px; }
       .subtitle { font-size: 15px; margin-bottom: 22px; }
       .card { min-height: unset; }
+      .outside-title { font-size: 19px; }
 
       .card-img {
         height: 230px;
         background: rgba(255,255,255,0.18);
       }
 
-      /* ✅ Mobile: fill more (optional) */
+      /* Mobile: fill more */
       .card-img img {
-        object-fit: cover; /* makes mobile look full */
+        object-fit: cover;
       }
     }
   </style>
@@ -227,35 +243,45 @@
 
     <div class="grid">
 
-      <!-- Elite -->
-      <div class="card">
-        <div class="card-img">
-          <img src="/vision/assets/elite/Elite-1.png" alt="Elite Chart Product" />
-        </div>
-        <h2>Elite Digital Visual Acuity Chart</h2>
-        <p>
-          Plug &amp; play visual acuity chart system with comprehensive testing,
-          universal HDMI compatibility, and 4K resolution support.
-        </p>
-        <div class="btn-row">
-          <a class="btn primary" href="/vision/elite_chart/">View Details</a>
-          <a class="btn" href="https://www.amazon.com/dp/B0CRKSMZ39" target="_blank">Buy on Amazon</a>
+      <!-- ✅ Elite -->
+      <div class="col">
+        <div class="outside-title">Elite Digital Visual Acuity Chart</div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="/vision/assets/elite/Elite-1.png" alt="Elite Chart Product" />
+          </div>
+
+          <p>
+            Plug &amp; play visual acuity chart system with comprehensive testing,
+            universal HDMI compatibility, and 4K resolution support.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn primary" href="/vision/elite_chart/">View Details</a>
+            <a class="btn" href="https://www.amazon.com/dp/B0CRKSMZ39" target="_blank">Buy on Amazon</a>
+          </div>
         </div>
       </div>
 
-      <!-- Remote -->
-      <div class="card">
-        <div class="card-img">
-          <img src="/vision/assets/remote/Remote-1.jpg" alt="Remote Control" />
-        </div>
-        <h2>RF Wireless Remote Control</h2>
-        <p>
-          2.4GHz RF remote control compatible with Elite visual acuity charts.
-          Fluorescent buttons for dark rooms and interference-free pairing.
-        </p>
-        <div class="btn-row">
-          <a class="btn primary" href="/vision/remote_control/">View Details</a>
-          <a class="btn" href="https://www.amazon.com/dp/B0DMRZ7GV5" target="_blank">Buy on Amazon</a>
+      <!-- ✅ Remote -->
+      <div class="col">
+        <div class="outside-title">RF Wireless Remote Control</div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="/vision/assets/remote/Remote-1.jpg" alt="Remote Control" />
+          </div>
+
+          <p>
+            2.4GHz RF remote control compatible with Elite visual acuity charts.
+            Fluorescent buttons for dark rooms and interference-free pairing.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn primary" href="/vision/remote_control/">View Details</a>
+            <a class="btn" href="https://www.amazon.com/dp/B0DMRZ7GV5" target="_blank">Buy on Amazon</a>
+          </div>
         </div>
       </div>
 
