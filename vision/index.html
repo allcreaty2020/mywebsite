@@ -142,6 +142,26 @@
       opacity: 0.95;
     }
 
+    /* ✅ Contact email */
+    .contact {
+      margin-top: 22px;
+      font-size: 14px;
+      color: #222;
+      font-weight: 700;
+    }
+
+    .contact a {
+      color: #222;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    .contact a:hover {
+      color: rgb(130, 65, 27);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
@@ -165,7 +185,7 @@
 
     <div class="grid">
 
-      <!-- ✅ Product 1 (Elite) — image changed to Elite-1 -->
+      <!-- ✅ Product 1 (Elite) -->
       <div class="card">
         <img src="/vision/assets/elite/Elite-1.png" alt="Elite Chart Product" />
         <h2>Elite Digital Visual Acuity Chart</h2>
@@ -179,7 +199,7 @@
         </div>
       </div>
 
-      <!-- Product 2 (Remote) -->
+      <!-- ✅ Product 2 (Remote) -->
       <div class="card">
         <img src="/vision/assets/remote/Remote-1.jpg" alt="Remote Control" />
         <h2>RF Wireless Remote Control</h2>
@@ -196,6 +216,11 @@
     </div>
 
     <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
+
+    <!-- ✅ Contact email -->
+    <div class="contact">
+      Contact: <a href="mailto:Allcreaty2020@gmail.com">Allcreaty2020@gmail.com</a>
+    </div>
 
   </div>
 </body>
