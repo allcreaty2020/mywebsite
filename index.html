@@ -66,7 +66,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
       margin-top: 10px;
-      align-items: stretch; /* ✅ force same height */
+      align-items: stretch;
     }
 
     /* Title OUTSIDE card */
@@ -79,7 +79,6 @@
       text-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
 
-    /* Each column wrapper */
     .col {
       display: flex;
       flex-direction: column;
@@ -95,7 +94,7 @@
       display: block;
     }
 
-    /* ✅ Card fixed height to keep same size */
+    /* Card fixed height for desktop consistency */
     .card {
       background: rgba(255,255,255,0.80);
       border-radius: 16px;
@@ -105,7 +104,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      height: 520px; /* ✅ same height for both */
+      height: 520px;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
       width: 100%;
@@ -116,27 +115,31 @@
       box-shadow: 0 12px 26px rgba(0,0,0,0.14);
     }
 
-    /* ✅ Image container fixed height */
+    /* ✅ Image container fixed height but shows FULL image */
     .card-img {
       width: 100%;
       max-width: 420px;
-      height: 240px; /* ✅ same image height */
+      height: 240px;
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 14px;
-      background: rgba(0,0,0,0.05);
+      background: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .card-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* ✅ keep card equal by cropping */
+      object-fit: contain;   /* ✅ FULL IMAGE (no cropping) */
+      object-position: center;
       display: block;
       transition: transform 0.35s ease;
     }
 
     .card:hover .card-img img {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
 
     .card p {
@@ -145,7 +148,7 @@
       color: #333;
       line-height: 1.5;
       max-width: 420px;
-      flex: 1; /* ✅ keep spacing consistent */
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -212,6 +215,7 @@
       text-underline-offset: 3px;
     }
 
+    /* Mobile unchanged */
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
@@ -221,11 +225,18 @@
       .outside-title { font-size: 20px; }
 
       .card {
-        height: auto; /* ✅ allow natural on mobile */
+        height: auto;
       }
 
       .card-img {
         height: 230px;
+      }
+    }
+
+    /* Desktop only: subtitle one-line */
+    @media (min-width: 900px) {
+      .subtitle {
+        white-space: nowrap;
       }
     }
   </style>
