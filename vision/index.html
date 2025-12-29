@@ -34,7 +34,7 @@
       text-align: center;
     }
 
-    /* ✅ Removed top logo, so add natural spacing */
+    /* ✅ Top logo removed, so add spacing */
     h1 {
       font-size: 28px;
       margin: 42px 0 16px 0;
@@ -58,6 +58,7 @@
       align-items: stretch;
     }
 
+    /* ✅ Column wrapper */
     .col {
       display: flex;
       flex-direction: column;
@@ -65,6 +66,7 @@
       height: 100%;
     }
 
+    /* ✅ Title outside card */
     .outside-title {
       font-size: 20px;
       font-weight: 900;
@@ -107,6 +109,7 @@
       justify-content: center;
     }
 
+    /* ✅ FULL image desktop + mobile */
     .card-img img {
       width: 100%;
       height: 100%;
@@ -167,9 +170,19 @@
       text-underline-offset: 3px;
     }
 
-    /* ✅ Contact updated */
-    .contact {
+    /* ✅ Footer logo preserved */
+    .footer-logo {
+      width: 12.8vw;
+      max-width: 77px;
+      min-width: 45px;
+      height: auto;
       margin-top: 44px;
+      opacity: 0.95;
+    }
+
+    /* ✅ Contact */
+    .contact {
+      margin-top: 18px;
       font-size: 14px;
       color: #222;
       font-weight: 700;
@@ -189,6 +202,7 @@
       text-underline-offset: 3px;
     }
 
+    /* ✅ Mobile */
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
@@ -264,6 +278,9 @@
       </div>
 
     </div>
+
+    <!-- ✅ Footer logo preserved -->
+    <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
 
     <!-- ✅ Contact updated -->
     <div class="contact">
