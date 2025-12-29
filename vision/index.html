@@ -34,7 +34,7 @@
       text-align: center;
     }
 
-    /* ✅ Top logo removed, so add spacing */
+    /* ✅ Main page title */
     h1 {
       font-size: 28px;
       margin: 42px 0 16px 0;
@@ -58,7 +58,6 @@
       align-items: stretch;
     }
 
-    /* ✅ Column wrapper */
     .col {
       display: flex;
       flex-direction: column;
@@ -66,15 +65,15 @@
       height: 100%;
     }
 
-    /* ✅ Title outside card */
+    /* ✅ FIX: Match outside titles to h1 style */
     .outside-title {
-      font-size: 20px;
-      font-weight: 900;
-      margin-bottom: 12px;
-      letter-spacing: 0.3px;
+      font-size: 28px;            /* same as h1 */
+      font-weight: 700;           /* same as h1 */
+      margin: 0 0 14px 0;
       color: #111;
       text-shadow: 0 6px 18px rgba(0,0,0,0.12);
       max-width: 420px;
+      line-height: 1.15;
     }
 
     .card {
@@ -109,7 +108,6 @@
       justify-content: center;
     }
 
-    /* ✅ FULL image desktop + mobile */
     .card-img img {
       width: 100%;
       height: 100%;
@@ -170,7 +168,6 @@
       text-underline-offset: 3px;
     }
 
-    /* ✅ Footer logo preserved */
     .footer-logo {
       width: 12.8vw;
       max-width: 77px;
@@ -180,7 +177,6 @@
       opacity: 0.95;
     }
 
-    /* ✅ Contact */
     .contact {
       margin-top: 18px;
       font-size: 14px;
@@ -202,22 +198,23 @@
       text-underline-offset: 3px;
     }
 
-    /* ✅ Mobile */
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
       h1 { font-size: 24px; margin-top: 26px; }
       .subtitle { font-size: 15px; margin-bottom: 22px; }
-      .outside-title { font-size: 19px; }
+
+      /* ✅ Mobile outside titles also match h1 */
+      .outside-title {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+
       .card { min-height: unset; }
 
       .card-img {
         height: 260px;
         background: rgba(255,255,255,0.18);
-      }
-
-      .card-img img {
-        object-fit: contain;
       }
     }
   </style>
@@ -279,10 +276,8 @@
 
     </div>
 
-    <!-- ✅ Footer logo preserved -->
     <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
 
-    <!-- ✅ Contact updated -->
     <div class="contact">
       Contact: <a href="mailto:Allcreatyvision@gmail.com">Allcreatyvision@gmail.com</a>
     </div>
