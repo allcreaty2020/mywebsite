@@ -94,7 +94,7 @@
       display: block;
     }
 
-    /* Card fixed height for desktop consistency */
+    /* ✅ Card fixed height for desktop consistency */
     .card {
       background: rgba(255,255,255,0.80);
       border-radius: 16px;
@@ -104,7 +104,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      height: 520px;
+      height: 560px; /* ✅ increased from 520 */
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
       width: 100%;
@@ -115,11 +115,11 @@
       box-shadow: 0 12px 26px rgba(0,0,0,0.14);
     }
 
-    /* ✅ Image container fixed height */
+    /* ✅ Image container fixed height (bigger for desktop) */
     .card-img {
       width: 100%;
       max-width: 420px;
-      height: 240px;
+      height: 300px; /* ✅ increased from 240 */
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 14px;
@@ -133,7 +133,7 @@
     .card-img img {
       width: 100%;
       height: 100%;
-      object-fit: contain;   /* ✅ Desktop shows full image */
+      object-fit: contain;
       object-position: center;
       display: block;
       transition: transform 0.35s ease;
@@ -216,7 +216,7 @@
       text-underline-offset: 3px;
     }
 
-    /* ✅ Mobile unchanged but smarter image display */
+    /* ✅ Mobile unchanged but smart image fill */
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
@@ -234,9 +234,8 @@
         background: rgba(255,255,255,0.15);
       }
 
-      /* ✅ Mobile uses cover (no blank space) */
       .card-img img {
-        object-fit: cover;
+        object-fit: cover; /* ✅ mobile looks full */
       }
     }
 
