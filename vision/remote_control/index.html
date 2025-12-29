@@ -59,6 +59,7 @@
       box-shadow: 0 10px 22px rgba(0,0,0,0.12);
       margin-bottom: 18px;
       object-fit: cover;
+      cursor: pointer;
     }
 
     h1 {
@@ -131,11 +132,26 @@
       font-size: 15px;
     }
 
+    /* ✅ Clickable images */
     .img {
       width: 100%;
       border-radius: 14px;
       margin-top: 14px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .img:hover {
+      transform: scale(1.01);
+      opacity: 0.95;
+    }
+
+    .tap-tip {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #666;
+      opacity: 0.9;
     }
 
     .features {
@@ -174,6 +190,74 @@
       .hero-sub { font-size: 15px; }
       .features { grid-template-columns: 1fr; }
     }
+
+    /* =========================
+       ✅ Image Modal (Zoom View)
+       ========================= */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      width: min(1100px, 96vw);
+      max-height: 92vh;
+      overflow: auto;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      padding: 6px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    }
+
+    .modal-img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(0,0,0,0.65);
+      transform: scale(1.05);
+    }
+
+    .modal-hint {
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -185,7 +269,7 @@
       <a href="https://www.amazon.com/dp/B0DMRZ7GV5" target="_blank">Buy on Amazon</a>
     </div>
 
-    <img class="hero-img" src="/vision/assets/remote/Remote-1.jpg" alt="RF Wireless Remote Control" />
+    <img class="hero-img zoomable" src="/vision/assets/remote/Remote-1.jpg" alt="RF Wireless Remote Control" />
 
     <h1>RF Wireless Remote Control</h1>
     <div class="hero-sub">
@@ -197,6 +281,8 @@
       <a class="btn primary" href="https://www.amazon.com/dp/B0DMRZ7GV5" target="_blank">Buy on Amazon</a>
       <a class="btn" href="/vision/">View Other Products</a>
     </div>
+
+    <div class="tap-tip">Tip: Click any image to zoom in.</div>
 
     <!-- Key Features -->
     <div class="section">
@@ -215,7 +301,7 @@
           Easy to use in dark rooms during testing.
         </div>
       </div>
-      <img class="img" src="/vision/assets/remote/Remote-3.png" alt="Remote Features" />
+      <img class="img zoomable" src="/vision/assets/remote/Remote-3.png" alt="Remote Features" />
     </div>
 
     <!-- Wireless -->
@@ -225,7 +311,7 @@
         Enjoy responsive control from any direction. The RF signal is designed for stable long-range operation
         with fast command transmission.
       </p>
-      <img class="img" src="/vision/assets/remote/Remote-2.jpg" alt="Wireless Remote" />
+      <img class="img zoomable" src="/vision/assets/remote/Remote-2.jpg" alt="Wireless Remote" />
     </div>
 
     <!-- Button Guide -->
@@ -234,7 +320,7 @@
       <p>
         The simplified layout is intuitive and easy to operate. Dedicated chart buttons allow quick access during testing.
       </p>
-      <img class="img" src="/vision/assets/remote/Remote-4.jpg" alt="Button Guide" />
+      <img class="img zoomable" src="/vision/assets/remote/Remote-4.jpg" alt="Button Guide" />
     </div>
 
     <!-- Battery Setup -->
@@ -243,7 +329,7 @@
       <p>
         Open the battery compartment, take out the receiver, and insert two AAA batteries. Please follow the “+ / –” marks.
       </p>
-      <img class="img" src="/vision/assets/remote/Remote-5.jpg" alt="Battery Setup" />
+      <img class="img zoomable" src="/vision/assets/remote/Remote-5.jpg" alt="Battery Setup" />
     </div>
 
     <div class="btn-row" style="margin-top: 28px;">
@@ -253,5 +339,59 @@
     <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
 
   </div>
+
+  <!-- ✅ Modal -->
+  <div class="modal" id="imgModal">
+    <div class="modal-content" id="modalContent">
+      <button class="close-btn" id="closeModal" aria-label="Close">✕</button>
+      <img class="modal-img" id="modalImg" src="" alt="Zoomed image" />
+    </div>
+    <div class="modal-hint">Click outside the image (or press ESC) to close.</div>
+  </div>
+
+  <script>
+    // ✅ Image Zoom Modal
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeModalBtn = document.getElementById("closeModal");
+    const modalContent = document.getElementById("modalContent");
+    const zoomables = document.querySelectorAll(".zoomable");
+
+    function openModal(src, alt) {
+      modalImg.src = src;
+      modalImg.alt = alt || "Zoomed image";
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+      modalImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    zoomables.forEach(img => {
+      img.addEventListener("click", () => {
+        openModal(img.src, img.alt);
+      });
+    });
+
+    closeModalBtn.addEventListener("click", closeModal);
+
+    // ✅ Click outside image closes modal
+    modal.addEventListener("click", (e) => {
+      if (!modalContent.contains(e.target)) {
+        closeModal();
+      }
+    });
+
+    // ✅ ESC to close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  </script>
+
 </body>
 </html>
