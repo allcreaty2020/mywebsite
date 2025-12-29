@@ -34,7 +34,6 @@
       text-align: center;
     }
 
-    /* Top Logo */
     .top-logo {
       width: 18vw;
       max-width: 150px;
@@ -59,7 +58,6 @@
       line-height: 1.5;
     }
 
-    /* Grid */
     .grid {
       width: 100%;
       display: grid;
@@ -69,7 +67,6 @@
       align-items: stretch;
     }
 
-    /* Title OUTSIDE card */
     .outside-title {
       font-size: 22px;
       font-weight: 900;
@@ -86,7 +83,6 @@
       height: 100%;
     }
 
-    /* Entire card clickable */
     .card-link {
       text-decoration: none;
       color: inherit;
@@ -94,7 +90,6 @@
       display: block;
     }
 
-    /* ✅ Card fixed height for desktop consistency */
     .card {
       background: rgba(255,255,255,0.80);
       border-radius: 16px;
@@ -104,7 +99,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      height: 560px; /* ✅ increased from 520 */
+      height: 560px;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
       width: 100%;
@@ -115,11 +110,10 @@
       box-shadow: 0 12px 26px rgba(0,0,0,0.14);
     }
 
-    /* ✅ Image container fixed height (bigger for desktop) */
     .card-img {
       width: 100%;
       max-width: 420px;
-      height: 300px; /* ✅ increased from 240 */
+      height: 300px;
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 14px;
@@ -129,7 +123,7 @@
       justify-content: center;
     }
 
-    /* ✅ Desktop default: FULL image */
+    /* ✅ Desktop FULL image */
     .card-img img {
       width: 100%;
       height: 100%;
@@ -156,7 +150,6 @@
       padding: 0 8px;
     }
 
-    /* Button style (visual only; full card click) */
     .btn-row {
       display: flex;
       justify-content: center;
@@ -196,7 +189,6 @@
       opacity: 0.95;
     }
 
-    /* Contact email */
     .contact {
       margin-top: 22px;
       font-size: 14px;
@@ -216,7 +208,7 @@
       text-underline-offset: 3px;
     }
 
-    /* ✅ Mobile unchanged but smart image fill */
+    /* ✅ Mobile: also FULL image (no crop) */
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
@@ -225,21 +217,18 @@
       .subtitle { font-size: 15px; margin-bottom: 20px; }
       .outside-title { font-size: 20px; }
 
-      .card {
-        height: auto;
-      }
+      .card { height: auto; }
 
       .card-img {
-        height: 230px;
+        height: 260px; /* ✅ slightly taller for mobile */
         background: rgba(255,255,255,0.15);
       }
 
       .card-img img {
-        object-fit: cover; /* ✅ mobile looks full */
+        object-fit: contain; /* ✅ keep full image on mobile */
       }
     }
 
-    /* Desktop only: subtitle one-line */
     @media (min-width: 900px) {
       .subtitle {
         white-space: nowrap;
@@ -282,7 +271,7 @@
       <!-- Art -->
       <div class="col">
         <div class="outside-title">Allcreaty Art</div>
-        <a class="card-link" href="/start/">
+        <a class="card-link" href="/Art/start/">
           <div class="card">
             <div class="card-img">
               <img src="/logofp.png" alt="Allcreaty Art" />
