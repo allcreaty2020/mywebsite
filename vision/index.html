@@ -34,18 +34,10 @@
       text-align: center;
     }
 
-    .top-logo {
-      width: 18vw;
-      max-width: 150px;
-      min-width: 90px;
-      height: auto;
-      margin-top: 40px;
-      margin-bottom: 18px;
-    }
-
+    /* ✅ Removed top logo, so add natural spacing */
     h1 {
       font-size: 28px;
-      margin: 8px 0 16px 0;
+      margin: 42px 0 16px 0;
       font-weight: 700;
     }
 
@@ -66,7 +58,6 @@
       align-items: stretch;
     }
 
-    /* ✅ Column wrapper (title outside card) */
     .col {
       display: flex;
       flex-direction: column;
@@ -74,7 +65,6 @@
       height: 100%;
     }
 
-    /* ✅ Title outside card */
     .outside-title {
       font-size: 20px;
       font-weight: 900;
@@ -104,7 +94,6 @@
       box-shadow: 0 12px 26px rgba(0,0,0,0.14);
     }
 
-    /* ✅ Image container */
     .card-img {
       width: 100%;
       max-width: 420px;
@@ -118,7 +107,6 @@
       justify-content: center;
     }
 
-    /* ✅ Desktop: full image */
     .card-img img {
       width: 100%;
       height: 100%;
@@ -179,21 +167,14 @@
       text-underline-offset: 3px;
     }
 
-    .footer-logo {
-      width: 12.8vw;
-      max-width: 77px;
-      min-width: 45px;
-      height: auto;
-      margin-top: 34px;
-      opacity: 0.95;
-    }
-
-    /* ✅ Contact */
+    /* ✅ Contact updated */
     .contact {
-      margin-top: 22px;
+      margin-top: 44px;
       font-size: 14px;
       color: #222;
       font-weight: 700;
+      line-height: 1.8;
+      text-align: center;
     }
 
     .contact a {
@@ -208,12 +189,10 @@
       text-underline-offset: 3px;
     }
 
-    /* ✅ Mobile: keep images FULL (no cropping) */
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
-      .top-logo { width: 34vw; margin-top: 26px; }
-      h1 { font-size: 24px; }
+      h1 { font-size: 24px; margin-top: 26px; }
       .subtitle { font-size: 15px; margin-bottom: 22px; }
       .outside-title { font-size: 19px; }
       .card { min-height: unset; }
@@ -224,7 +203,7 @@
       }
 
       .card-img img {
-        object-fit: contain; /* ✅ FULL IMAGE on mobile too */
+        object-fit: contain;
       }
     }
   </style>
@@ -233,7 +212,6 @@
 <body>
   <div class="page">
 
-    <img src="/logo.png" class="top-logo" alt="Allcreaty Logo" />
     <h1>Allcreaty Vision</h1>
 
     <div class="subtitle">
@@ -287,10 +265,9 @@
 
     </div>
 
-    <img src="/logo.png" class="footer-logo" alt="Allcreaty Footer Logo" />
-
+    <!-- ✅ Contact updated -->
     <div class="contact">
-      Contact: <a href="mailto:Allcreaty2020@gmail.com">Allcreaty2020@gmail.com</a>
+      Contact: <a href="mailto:Allcreatyvision@gmail.com">Allcreatyvision@gmail.com</a>
     </div>
 
   </div>
