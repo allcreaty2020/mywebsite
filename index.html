@@ -115,7 +115,7 @@
       box-shadow: 0 12px 26px rgba(0,0,0,0.14);
     }
 
-    /* ✅ Image container fixed height but shows FULL image */
+    /* ✅ Image container fixed height */
     .card-img {
       width: 100%;
       max-width: 420px;
@@ -129,10 +129,11 @@
       justify-content: center;
     }
 
+    /* ✅ Desktop default: FULL image */
     .card-img img {
       width: 100%;
       height: 100%;
-      object-fit: contain;   /* ✅ FULL IMAGE (no cropping) */
+      object-fit: contain;   /* ✅ Desktop shows full image */
       object-position: center;
       display: block;
       transition: transform 0.35s ease;
@@ -215,7 +216,7 @@
       text-underline-offset: 3px;
     }
 
-    /* Mobile unchanged */
+    /* ✅ Mobile unchanged but smarter image display */
     @media (max-width: 720px) {
       body { background-attachment: scroll; }
       .grid { grid-template-columns: 1fr; }
@@ -230,6 +231,12 @@
 
       .card-img {
         height: 230px;
+        background: rgba(255,255,255,0.15);
+      }
+
+      /* ✅ Mobile uses cover (no blank space) */
+      .card-img img {
+        object-fit: cover;
       }
     }
 
